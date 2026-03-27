@@ -1,3 +1,5 @@
+--uso de un select dentro de otro
+
 use Northwind;
 Select c.CustomerID, c.CompanyName
 from Customers c Where c.CustomerID in(
