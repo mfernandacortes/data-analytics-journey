@@ -1,3 +1,6 @@
+--la subconsulta busca productos vendidos usando exists
+--vendidos en el año 1997
+
 use Northwind;
 
 Select p.ProductID, p.ProductName
