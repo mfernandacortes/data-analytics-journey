@@ -1,3 +1,5 @@
+--uso COALESCE
+
 use Northwind;
 select p.ProductID, p.ProductName, COALESCE(SUM(od.Quantity), 0) as totcant
 from Products p
