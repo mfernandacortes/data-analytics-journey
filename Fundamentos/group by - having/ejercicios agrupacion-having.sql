@@ -1,3 +1,5 @@
+--Ejercicios varios, explicación razonamiento
+
 select CustomerId, CompanyName, ContactName, ContactTitle, City, Address, Country
 from Customers
 where Country = 'USA' or Country = 'Mexico'
