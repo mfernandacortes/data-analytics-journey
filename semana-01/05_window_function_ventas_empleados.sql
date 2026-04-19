@@ -3,8 +3,8 @@
 -- No se puede mezclar Window Function con GROUP BY en SQL Server
 -- Solución: CTE previa para agrupar, Window Function en el SELECT final
 
-WITH ventas_por_empleado AS (
-...
+
+use Northwind;
 WITH ventas_por_empleado AS (
     SELECT 
         e.EmployeeID, e.LastName,
