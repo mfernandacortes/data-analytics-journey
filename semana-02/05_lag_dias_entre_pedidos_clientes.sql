@@ -24,3 +24,30 @@ SELECT
         OrderDate) as dias_entre_pedidos
 FROM pedidos_cliente
 ORDER BY CustomerID, OrderDate
+
+/*Segunda parte del análisis: que pasó con el cliente?
+Se realizó una nueva consulta pero esta vez agregando los datos del empleado, vemos que
+se interrumpió entre Leverling que fue el penúltimo vendedor, ahi pasaron 281 días,
+volvió y ahi lo atendió Davolio. Es necesario hablar con los dos vendedores, con el cliente
+para descartar que haya tenido otro tipo de problemas o alguna queja y de acuerdo a eso
+proponer alguna promoción para recuperar clientes.*/
+
+WITH pedidos_cliente AS (
+    SELECT 
+        c.CustomerID, c.CompanyName,
+        o.OrderID,
+        o.OrderDate, 
+	e.EmployeeID, e.LastName
+    FROM Customers c
+    JOIN Orders o ON c.CustomerID = o.CustomerID
+    JOIN Employees e ON o.EmployeeID = o.EmployeeID
+)
+SELECT 
+    CustomerID, CompanyName,
+    OrderID, OrderDate,
+    LAG(OrderDate) OVER (PARTITION BY CustomerID ORDER BY OrderDate) as pedido_anterior,
+    DATEDIFF(day, 
+        LAG(OrderDate) OVER (PARTITION BY CustomerID ORDER BY OrderDate), 
+        OrderDate) as dias_entre_pedidos, EmployeeID, LastName
+FROM pedidos_cliente
+ORDER BY CustomerID, OrderDate
