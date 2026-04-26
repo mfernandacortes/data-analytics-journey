@@ -3,9 +3,13 @@ hay algo curioso, los días entre pedidos fueron muy variados
 pero hubo una brecha grande entre abril 1998 y enero 1999 y ese
 fue su último pedido. En 1997 pasaban 30 días, 60 días, 10 días, pero
 esta brecha se generó entre 1998 y 1999 casi un año.Alfred Futterkiste.*/
--- Días entre pedidos por cliente usando LAG y DATEDIFF
+-- ANÁLISIS: Comportamiento de compra por cliente
+-- Parte 1: Días entre pedidos usando LAG y DATEDIFF
 -- Hallazgo: clientes con brechas grandes pueden indicar churn
--- Próxima pregunta: ¿cambió el empleado asignado antes de la brecha?
+-- Parte 2: Empleado asignado por pedido para investigar si el cambio de vendedor influyó
+-- Próxima pregunta: ¿cambió el empleado asignado antes de la brecha grande?
+
+
 
 WITH pedidos_cliente AS (
     SELECT 
@@ -40,7 +44,7 @@ WITH pedidos_cliente AS (
 	e.EmployeeID, e.LastName
     FROM Customers c
     JOIN Orders o ON c.CustomerID = o.CustomerID
-    JOIN Employees e ON o.EmployeeID = o.EmployeeID
+    JOIN Employees e ON o.EmployeeID = e.EmployeeID
 )
 SELECT 
     CustomerID, CompanyName,
