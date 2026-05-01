@@ -15,4 +15,4 @@ es insuficiente para confirmar estacionalidad.
 
 
 
-![Resultado query](estudio_crecimiento_caida_Northwind.png)
+![Resultado query](images/estudio_crecimiento_caida_Northwind.png)
