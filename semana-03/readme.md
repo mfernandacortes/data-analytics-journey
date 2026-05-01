@@ -12,7 +12,7 @@ Clasificación de cada mes como Crecimiento, Caída o Igual comparando con el me
 
 **Hallazgo:** 15 meses de crecimiento y 7 de caída. Agosto muestra caída en ambos años disponibles pero el dataset 
 es insuficiente para confirmar estacionalidad.
-
+Este tipo de análisis permite entender tendencias temporales y detectar posibles patrones en el comportamiento de ventas.
 
 
 ![Resultado query](images/estudio_crecimiento_caida_Northwind.png)
