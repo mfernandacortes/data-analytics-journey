@@ -16,3 +16,13 @@ Este tipo de análisis permite entender tendencias temporales y detectar posible
 
 
 ![Resultado query](images/estudio_crecimiento_caida_Northwind.png)
+
+### 04 — Ventas trimestrales con crecimiento porcentual
+
+Análisis de ventas por trimestre usando DATEPART y LAG para calcular variación porcentual.
+**Herramientas:** DATEPART + LAG + porcentaje
+
+**Hallazgo:** Crecimiento inicial del 68% en Q4 1996, estabilización en 1997 y repunte 
+del 62% en Q1 1998 seguido de caída del 50%. Posible liquidación de stock antes del cierre.
+
+![Ventas trimestrales](images/ventas_trimestrales_northwind.png)
