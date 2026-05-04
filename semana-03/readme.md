@@ -26,3 +26,12 @@ Análisis de ventas por trimestre usando DATEPART y LAG para calcular variación
 del 62% en Q1 1998 seguido de caída del 50%. Posible liquidación de stock antes del cierre.
 
 ![Ventas trimestrales](images/ventas_trimestrales_northwind.png)
+
+### 05 — PIVOT manual: ventas trimestrales por año
+
+Transforma filas de trimestres en columnas usando CASE WHEN.
+**Herramientas:** DATEPART + CASE WHEN + SUM
+
+**Hallazgo:** Q1 1998 duplicó las ventas respecto al trimestre anterior — posible liquidación de stock antes del cierre del dataset.
+
+![PIVOT ventas trimestrales](images/pivot_ventas_trimestrales.png)
