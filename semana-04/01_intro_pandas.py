@@ -13,3 +13,7 @@ conn = pyodbc.connect(
 # Traer clientes
 df = pd.read_sql("SELECT CustomerID, CompanyName, Country FROM Customers", conn)
 print(df.head())
+
+# Cuántos clientes hay por país
+paises = df.groupby('Country').size().reset_index(name='cantidad')
+print(paises.sort_values('cantidad', ascending=False))
