@@ -40,3 +40,26 @@ empleados = pd.read_sql("SELECT * FROM Employees", conn)
 #Ver las primeras 5 filas
 print(empleados.head())
 
+clientes = pd.read_sql("SELECT * FROM Customers", conn)
+
+# Ejercicio 1
+print(clientes['CompanyName'])
+
+# Ejercicio 2  
+print(clientes[['CompanyName', 'City', 'Country']])
+
+# Ejercicio 3: mostrar clientes solo de Argentina
+
+#--clientes_arg = clientes[clientes['Country'] == 'Argentina']
+#print(clientes_arg[['CompanyName', 'City']])
+# python 02_pandas_clientes.py
+# Ejercicio 4: clientes de Germany en una sola línea
+
+print(clientes[clientes['Country']=='Germany'][['CompanyName','ContactName']])
+
+#Ejercicio 5: elegir de la ciudad de Berlín y CompanyName, City y ContactName
+
+# hice yo (bien razonamiento): print(clientes[clientes['Country']]==('Germany') & ('City'=='Berlin')[['CompanyName', 'City', 'ContactName']])
+
+# correcto:
+print(clientes[(clientes['Country'] == 'Germany') & (clientes['City'] == 'Berlin')][['CompanyName', 'City', 'ContactName']])
