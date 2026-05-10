@@ -5,11 +5,14 @@ Focus: writing queries that answer real business questions, not just technical e
 
 ---
 
-## About this repository
+## About this project
 
-This is my hands-on learning journey into data analytics.  
-Each week I work with the Northwind database and try to find something meaningful in the data —  
-not just practice syntax, but think like an analyst.
+
+This repository documents my learning journey into data analytics using SQL.
+
+Each week I explore the Northwind database, not only to practice syntax, 
+but to understand the data and extract meaningful insights from a business perspective.
+The goal is to progressively move from technical exercises to analytical thinking.
 
 **Stack:** SQL Server · Northwind DB · Git
 
@@ -17,17 +20,22 @@ not just practice syntax, but think like an analyst.
 
 ## What I'm building
 
+
 | Week | Topics | Business focus |
 |------|--------|---------------|
 | [Week 1](./semana-01/) | CTEs, chained CTEs, subqueries, aggregations | Sales performance by employee and customer |
-| [Week 2](./semana-02/) | Window functions: RANK, ROW\_NUMBER, LAG, LEAD | Customer behavior, churn signals, ranking analysis |
+| [Week 2](./semana-02/) | Window functions: RANK, ROW_NUMBER, LAG, LEAD | Customer behavior, churn signals, ranking analysis |
+| [Week 3](./semana-03/) | CASE WHEN, conditional logic | Returns analysis, business rules and classification |
+
+
 
 ---
 
 ## Key findings
 
 ### Churn signal detected — Customer ALFKI
-*(File: `semana-02/05_lag_dias_entre_pedidos_clientes.sql`)*
+*(File: [semana-02/05_lag_dias_entre_pedidos_clientes.sql](https://github.com/mfernandacortes/data-analytics-journey/blob/main/semana-02/05_lag_dias_entre_pedidos_clientes.sql))*
+
 
 Using `LAG` and `DATEDIFF` to calculate days between orders per customer,  
 I found an unusual pattern for customer **Alfred Futterkiste (ALFKI)**:
@@ -76,10 +84,13 @@ Full analysis → [ANALISIS\_CALIDAD\_DATOS.md](./ANALISIS_CALIDAD_DATOS.md)
 ## Repository structure
 
 ```
+
 data-analytics-journey/
 ├── semana-01/          # CTEs, aggregations, subqueries
 ├── semana-02/          # Window functions, churn analysis
-├── ANALISIS_CALIDAD_DATOS.md   # Data quality findings
+├── semana-03/          # CASE WHEN, business scenarios
+├── images/             # visual outputs from queries
+├── ANALISIS_CALIDAD_DATOS.md
 └── README.md
 ```
 
