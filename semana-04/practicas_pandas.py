@@ -73,3 +73,8 @@ print(clientes[(clientes['Country'] == 'Germany') | (clientes['Country'] == 'Arg
 
 #Como es: el not envuelve toda la condición negándola, o sea que ~= no existe...  :
 print(clientes[~(clientes['Country'] == 'Germany')][['CompanyName', 'Country']])
+
+# Ordenar el DataFrame clientes 
+# por Country de forma ascendente y mostrá CompanyName y Country.
+
+print(clientes.sort_values('Country', ascending=True)[['CompanyName', 'Country']])
