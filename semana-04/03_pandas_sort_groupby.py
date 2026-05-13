@@ -45,3 +45,7 @@ print(ordenes.head())
 # el JOIN de SQL con customers y orders:
 clientes_ordenes = pd.merge(clientes, ordenes, on='CustomerID')
 print(clientes_ordenes.head())
+
+# cargar Order Details:
+order_details = pd.read_sql("SELECT * FROM [Order Details]", conn)
+print(order_details.head())

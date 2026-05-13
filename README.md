@@ -51,7 +51,22 @@ This is the type of insight that matters in a real business context —
 a dashboard showing total orders would never catch it.
 
 ---
+### Revenue concentration risk — USA and Germany
 
+*(File: `semana-04/04_pandas_agg_merge.py`)*
+
+Using `groupby` and `agg` in Pandas to calculate total revenue by country
+(replicating a multi-table SQL JOIN across Customers, Orders and Order Details),
+I found that USA and Germany together represent a disproportionate share of total revenue:
+
+- USA: $245,584 — ranked 1st
+- Germany: $230,284 — ranked 2nd
+- Austria: $128,003 — ranked 3rd (less than half of USA)
+
+> This gap suggests a revenue concentration risk.
+> A business this dependent on two markets is highly exposed
+> if key customers in those countries reduce their orders.
+---
 ### Data quality issue — orphan order detected
 *(File: [ANALISIS\_CALIDAD\_DATOS.md](./ANALISIS_CALIDAD_DATOS.md))*
 
