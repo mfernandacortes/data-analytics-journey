@@ -32,3 +32,9 @@ print(cli_od['Monto'].head())
 
 #correr el groupby
 print(cli_od.groupby('Country').agg({'Monto': 'sum'}).sort_values('Monto', ascending=False))
+
+#
+
+#ejercicio: correr varias funciones agregación en misma columna
+print(cli_od.groupby('Country').agg({'Monto': ['sum', 'mean', 'count']}).sort_values(('Monto', 'sum'), ascending=False))
+
