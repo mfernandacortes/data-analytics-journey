@@ -46,28 +46,3 @@ más cercanos al umbral VIP, con un objetivo de incremento de 20.000 y una comis
 extra como incentivo. Si la estrategia funciona con este grupo piloto, se puede 
 extender a los siguientes 5 clientes en una segunda etapa.*/
 
-WITH clientes_mas_gastaron AS (
-	select c.CustomerID, c.CompanyName, SUM(od.Quantity * od.UnitPrice - (1- od.Discount)) as Monto,
-	--e.EmployeeID, e.LastName
-	from Customers c
-	join Orders o
-	ON c.CustomerID = o.CustomerID
-        join Employees e
-	ON e.EmployeeID = o.EmployeeID
-	join [Order Details] od
-	ON o.OrderID = od.OrderID
-	group by c.CustomerID, c.CompanyName
-),
-  clasificacion_clientes AS (
-	select CustomerID, CompanyName, Monto, LastName,
-	CASE
-     	   WHEN Monto < 10000 then 'Ocasional'
-           WHEN Monto >= 10000 and Monto <=50000 then 'Regular'
-           WHEN Monto > 50000 then 'VIP'
-	END AS Clasificacion
-	from clientes_mas_gastaron
-)
-  select CustomerID, CompanyName, Monto, Clasificación, LastName
-  from clasificacion_clientes
-  
-  order by Monto desc
