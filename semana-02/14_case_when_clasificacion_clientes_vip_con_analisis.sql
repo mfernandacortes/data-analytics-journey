@@ -45,4 +45,3 @@ comercial. La recomendación es asignar un vendedor fijo a los 5 clientes Regula
 más cercanos al umbral VIP, con un objetivo de incremento de 20.000 y una comisión
 extra como incentivo. Si la estrategia funciona con este grupo piloto, se puede 
 extender a los siguientes 5 clientes en una segunda etapa.*/
-
