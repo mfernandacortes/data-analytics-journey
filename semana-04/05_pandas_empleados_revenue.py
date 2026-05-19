@@ -35,3 +35,4 @@ print(emp_or_det.groupby(['EmployeeID','LastName']).agg({'Monto': ['sum', 'mean'
 #
 
 # python 05_pandas_empleados_revenue.py
+
