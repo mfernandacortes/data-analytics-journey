@@ -49,3 +49,24 @@ GROUP BY
         ELSE 'Alto'
     END
 ORDER BY work_mode, total DESC
+
+-- Análisis de descanso:el dataset tiene el nro multiplicado por 10 en filas, 
+-- teniendo en cuenta esto, se analiza:
+
+SELECT 
+    CASE 
+        WHEN sleep_hours < 60 THEN 'Poco (menos de 6hs)'
+        WHEN sleep_hours <= 80 THEN 'Normal (6 a 8hs)'
+        ELSE 'Mucho (más de 8hs)'
+    END AS categoria_sueno,
+    ROUND(AVG(CAST(burnout_risk AS float)), 1) AS promedio_burnout,
+    COUNT(*) AS total
+FROM small_bournout
+WHERE sleep_hours IS NOT NULL
+GROUP BY 
+    CASE 
+        WHEN sleep_hours < 60 THEN 'Poco (menos de 6hs)'
+        WHEN sleep_hours <= 80 THEN 'Normal (6 a 8hs)'
+        ELSE 'Mucho (más de 8hs)'
+    END
+ORDER BY promedio_burnout DESC
