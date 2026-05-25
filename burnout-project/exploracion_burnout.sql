@@ -70,3 +70,38 @@ GROUP BY
         ELSE 'Mucho (más de 8hs)'
     END
 ORDER BY promedio_burnout DESC
+
+-- análisis del riesgo de burnout por nivel de strees
+-- Hallazgo: A medida que el nivel de strees aumenta, el riesgo de burnout también tiende a aumentar, 
+-- lo que sugiere una correlación positiva entre ambos factores. 
+-- Este hallazgo destaca la importancia de gestionar el stress para reducir el riesgo de burnout en los individuos.
+SELECT 
+    stress_level,
+    ROUND(AVG(CAST(burnout_risk AS float)), 1) AS promedio_burnout,
+    COUNT(*) AS total
+FROM small_bournout
+GROUP BY stress_level
+ORDER BY stress_level
+
+-- ahora analizamos el riesgo de burnout por fatiga mental:
+-- Hallazgo: en este caso no ocurre lo mismo, ya que el promedio oscila entre 47 y 49 en todos
+-- los niveles de fatiga mental, lo que sugiere que no hay una correlación clara entre la fatiga
+-- mental y el riesgo de burnout en esta muestra de datos.
+SELECT 
+    mental_fatigue,
+    ROUND(AVG(CAST(burnout_risk AS float)), 1) AS promedio_burnout,
+    COUNT(*) AS total
+FROM small_bournout
+GROUP BY mental_fatigue
+ORDER BY mental_fatigue
+
+-- el siguiente es el análisis del riesgo de burnout comparado con la ocupación:
+-- Hallazgo: los promedios se mantienen en el mismo rango, por lo tanto no hay una relación directa entre
+-- las profesiones del dataset y el riesgo de burnout
+SELECT 
+    occupation,
+    ROUND(AVG(CAST(burnout_risk AS float)), 1) AS promedio_burnout,
+    COUNT(*) AS total
+FROM small_bournout
+GROUP BY occupation
+ORDER BY promedio_burnout DESC
