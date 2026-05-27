@@ -23,9 +23,16 @@ print(df)
 por_mes = df.groupby("mes")["monto"].sum().reset_index()
 print(por_mes)
 
-# diferencia entre fechas:
+# diferencia entre fechas (DATEDIFF de SQL)
 
 df["dias_desde_primera"] = (df["fecha_venta"] - df["fecha_venta"].min()).dt.days
 print(df[["empleado", "fecha_venta", "dias_desde_primera"]])
+
+#ahora calculo la diferencia de días agrupando por empleados
+resumen = df.groupby("empleado")["fecha_venta"].agg(["min", "max"])
+print(resumen)
+
+resumen = (resumen["max"] - resumen["min"]).dt.days
+print(resumen)
 
 # python 14_pandas_datetime.py
