@@ -34,9 +34,8 @@ plt.show()
 # Gráfico 2 - barplot  gráfico con work_mode
 # con el gráfico por modalidad de trabajo confirmamos el hallazgo en sql:
 # la modalidad de trabajo no afecta el riesgo de burnout
-
-sns.barplot(data=data_burnout, x="work_mode", y="burnout_risk")
 plt.title("Burnout promedio por modalidad de trabajo")
 plt.xlabel("Modalidad")
 plt.ylabel("Burnout promedio")
+sns.barplot(data=data_burnout, x="work_mode", y="burnout_risk")
 plt.show()
