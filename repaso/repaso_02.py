@@ -29,6 +29,14 @@ ordenes_item_emp = ordenes_item.merge(empleados, on="EmployeeID")
 #group by:
 
 ordenes_item_emp["monto"] = ordenes_item_emp["UnitPrice"] * ordenes_item_emp["Quantity"]
-ordenes_item_emp=ordenes_item_emp.groupby(["EmployeeID", "LastName"])["monto"].sum()
+ordenes_item_emp=ordenes_item_emp.groupby(["EmployeeID", "LastName"])["monto"].sum().reset_index()
 
 print(ordenes_item_emp)
+#filtrar por 5 mejores empleados que hayan vendido por encima del promedio:
+
+cinco_emp=ordenes_item_emp[ordenes_item_emp["monto"] > ordenes_item_emp["monto"].mean()] 
+
+print(cinco_emp.sort_values("monto", ascending= False))
+
+# Hallazgo: solo 4 empleados superan el promedio general de ventas
+# Peacock lidera con $250.187 — más del doble que los empleados de menor rendimiento
