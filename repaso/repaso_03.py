@@ -1,7 +1,7 @@
 """
 Calculá el monto total vendido por producto, mostrando solo los productos 
 que superan el promedio general. Ordenados de mayor a menor.
-Tablas que necesitás: Products, Order Details.
+Tablas: Products, Order Details.
 """
 
 import pandas as pd
@@ -28,9 +28,14 @@ od_prod= od.merge(prod, on="ProductID")
 #crear una columna nueva llamada monto: va el dataframe y en corchetes el nombre del campo o columna
 od_prod["Monto"] = od_prod["UnitPrice"] * od_prod["Quantity"] * (1 - od_prod["Discount"])
 
-# revisar y segurir:
-# od_prod= od_prod.groupby(["ProductID", "ProductName"]).sum("Monto")
-# od_prod["Promedio"] = od_prod["Monto"].mean("Monto")
+# revisar y segurir:groupby(columnas de agrupación) → seleccionar columna a sumar → sum()
+od_prod= od_prod.groupby(["ProductID", "ProductName"]) ["Monto"].sum().reset_index()
+promedio = od_prod["Monto"].mean()
 
-print(od_prod)
-# python repaso_03.py
+# print(od_prod)
+print(promedio)
+
+od_prod = od_prod[od_prod["Monto"] > promedio]
+
+print(od_prod.sort_values("Monto", ascending=False).head())
+#                     
