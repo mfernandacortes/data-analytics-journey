@@ -26,7 +26,8 @@ df = df[(df["CategoryID"] == 1) | (df["CategoryID"]  == 2)]
 print(df)
 
 
-# seguir mañana: df.groupby("columna_agrupacion")["columna_a_calcular"].mean()
-#df = df.groupby("CategoryID").df["UnitPrice"].mean()
+
+df = df.groupby("CategoryID")["UnitPrice"].mean()
+
 print(df)
 # python combinados.py
