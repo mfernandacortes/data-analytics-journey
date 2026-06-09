@@ -29,4 +29,23 @@ def calcular_monto(precio, cantidad, descuento):
 
 df["Monto"] = df.apply(lambda row: calcular_monto(row["UnitPrice"], row["Quantity"], row["Discount"]), axis=1)
 print(df)
+"""
+Sobre Order Details de Northwind — traé UnitPrice, Quantity y Discount. Escribí una función con def que clasifique cada venta como:
+
+Mayor a 500 → "venta grande"
+Entre 100 y 500 → "venta media"
+Menor a 100 → "venta chica"
+"""
+def clasificar_venta(monto_venta):
+    if monto_venta >= 500:
+        categoria = 'Venta Grande'
+    elif monto_venta < 500 and monto_venta >= 100:
+        categoria ="Venta media"
+    else:
+        categoria = "Venta chica"
+    return categoria
+
+df["Categoria"] = df.apply(lambda row: clasificar_venta(row["Monto"]), axis=1)
+
+print(df)
 # python combinados3.py
