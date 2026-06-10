@@ -25,4 +25,18 @@ def calcular_monto(precio, cantidad, descuento):
 
 df["monto_con_iva"] = df.apply(lambda row: calcular_monto(row["UnitPrice"], row["Quantity"], row["Discount"]), axis = 1 ) * 1.21
 print(df)
+
+"""
+Sobre Products de Northwind, traé UnitPrice y agregá una columna 
+precio_dolar dividiendo por 1400 (tipo de cambio). Solo lambda, sin función propia.
+"""
+
+# como es una sola columna no se necesita ni axis ni row:
+
+
+df["precio_dolar"] = df["UnitPrice"].apply(lambda x: x / 1400)
+
+print(df)
+
 # python combinados4.py
+ 
