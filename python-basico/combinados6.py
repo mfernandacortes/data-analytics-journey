@@ -14,10 +14,20 @@ engine = create_engine(
 
 # traigo tablas que necesito:
 df = pd.read_sql("Select UnitPrice, Quantity, Discount from [Order Details]", engine)
+emp = pd.read_sql("Select EmployeeID, FirstName, LastName from Employees", engine)
 
-# df["tiene_descuento"] = df.apply(lambda row:if row["Discount"] == 0 "No" else "Si")
 
 df["tiene descuento"]= df.apply(lambda row: "No" if row["Discount"] == 0 else "Sí", axis = 1)
 
 print(df)
+"""
+Sobre Employees de Northwind — traé FirstName, LastName y BirthDate. Con apply() y lambda, creá una 
+columna nombre_completo que una FirstName y LastName con un espacio.
+Pista: en Python los strings se unen con +.
+
+"""
+
+emp["nombre_completo"] = emp.apply(lambda row : row["FirstName"] + " " + row["LastName"], axis = 1)
+
+print(emp)
 
