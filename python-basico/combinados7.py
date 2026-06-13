@@ -25,13 +25,13 @@ Pista: la diferencia entre dos fechas en días se obtiene restando, y para conve
 a años aproximados dividir por 365.
 """
 
-emp["nombre_completo"] = emp.apply(lambda row : row["FirstName"] + " " + row["LastName"], axis = 1)
+#emp["nombre_completo"] = emp.apply(lambda row : row["FirstName"] + " " + row["LastName"], axis = 1)
 
 # emp["anios_contrato"] = emp.apply(lambda row : row["HireDate"] - row["BirthDate"], axis = 1)
 
-emp["anios_contrato"] = emp.apply(lambda row: (row["HireDate"] - row["BirthDate"]).days / 365, axis=1)
+#emp["anios_contrato"] = emp.apply(lambda row: (row["HireDate"] - row["BirthDate"]).days / 365, axis=1)
 
-print(emp)
+#print(emp)
 
 """
 Ahora el caso nuevo — abrir un archivo nuevo combinados7.py. Sobre Products, traer UnitPrice y UnitsInStock. 
@@ -41,4 +41,13 @@ Con axis=1, calcul valor_inventario = UnitPrice * UnitsInStock.
 
 st["valor_inventario"] = st.apply(lambda row : (row["UnitPrice"] * row["UnitsInStock"]), axis = 1)
 
-print(st)
+#print(st)
+"""
+Ahora el caso con axis=0 — sobre el mismo DataFrame, calculá el promedio de UnitPrice y
+de valor_inventario usando apply() sin axis (o axis=0). 
+
+"""
+
+# pedidos[["UnitPrice", "Quantity"]].apply(lambda col: col.mean())
+
+print(st[["UnitPrice", "valor_inventario"]].apply(lambda col: col.mean()))
