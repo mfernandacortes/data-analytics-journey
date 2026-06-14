@@ -51,3 +51,17 @@ de valor_inventario usando apply() sin axis (o axis=0).
 # pedidos[["UnitPrice", "Quantity"]].apply(lambda col: col.mean())
 
 print(st[["UnitPrice", "valor_inventario"]].apply(lambda col: col.mean()))
+
+"""
+sobre Products de Northwind, traer ProductName, UnitPrice y UnitsInStock. Con apply() y axis=1, 
+crear una columna estado_stock que diga:
+
+"Sin stock" si UnitsInStock == 0
+"Stock bajo" si UnitsInStock es menor a 10
+"Stock normal" si es 10 o más
+"""
+
+
+st["estado_stock"]=st.apply(lambda row : "Sin Stock" if row["UnitsInStock"] == 0 else "Stock bajo" if row["UnitsInStock"] <= 10 else "Stock normal", axis = 1)
+
+print(st)
