@@ -20,7 +20,7 @@ engine = create_engine(
 
 # traigo tablas que necesito:
 
-prod= pd.read_sql("Select ProductID, ProductName, UnitPrice, UnitsInStock from Products", engine)
+prod= pd.read_sql("Select ProductID, ProductName, CategoryID, UnitPrice, UnitsInStock from Products", engine)
 cli= pd.read_sql("Select OrderID, CustomerID from Orders", engine)
 
 
@@ -35,3 +35,14 @@ Agrupar las órdenes por cliente y contar cuántas órdenes realizó cada uno, o
 cli= cli.groupby("CustomerID").size().sort_values(ascending=False)
 
 print(cli)
+
+"""
+Calcular el promedio de UnitPrice 
+por categoría (CategoryID) en la tabla Products, ordenado de mayor a menor.
+"""
+#la estructura: primero la columna por la que agrupar(categoryID) luego por la q calcular promedio:UnitPrice y x último el órden)
+
+prod=prod.groupby("CategoryID")["UnitPrice"].mean().sort_values(ascending=False)
+
+
+print(prod)
