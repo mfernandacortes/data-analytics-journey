@@ -42,7 +42,25 @@ por categoría (CategoryID) en la tabla Products, ordenado de mayor a menor.
 """
 #la estructura: primero la columna por la que agrupar(categoryID) luego por la q calcular promedio:UnitPrice y x último el órden)
 
-prod=prod.groupby("CategoryID")["UnitPrice"].mean().sort_values(ascending=False)
+#prod=prod.groupby("CategoryID")["UnitPrice"].mean().sort_values(ascending=False)
 
+
+#print(prod)
+
+
+"""
+Usando la tabla Products de Northwind, agrupá por CategoryID y calculá en una sola línea:
+
+El precio promedio (UnitPrice)
+El precio máximo (UnitPrice)
+La cantidad de productos (ProductID)
+
+Guardá el resultado en una variable y printealo
+
+
+"""
+
+
+prod = prod.groupby("CategoryID").agg({"UnitPrice": ["mean", "max"],"ProductID" : "size"})
 
 print(prod)
