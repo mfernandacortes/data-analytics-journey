@@ -23,7 +23,7 @@ engine = create_engine(
 prod= pd.read_sql("Select ProductID, ProductName, CategoryID, UnitPrice, UnitsInStock from Products", engine)
 cli= pd.read_sql("Select OrderID, CustomerID, EmployeeID from Orders", engine)
 od= pd.read_sql("Select OrderID, ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
-emp=pd.read_sql("Select EmployeeID, LastName from Employees"), engine
+#emp=pd.read_sql("Select EmployeeID, LastName from Employees"), engine
 
 
 prod["columna_categoria"] = prod.apply(lambda row: "Económico" if row["UnitPrice"] <= 15 else "Medio" if (row["UnitPrice"] > 15) & (row["UnitPrice"] <= 50) else "Premium", axis = 1)
@@ -73,6 +73,11 @@ ordenar de mayor a menor y mostrar los 5 primeros.Calcular la suma total de vent
 empleado usando las tablas Orders y Order Details, ordenar de mayor a menor y mostrar los 5 primeros.
 """
 
-cli["monto_total"] = cli.groupby("EmployeeID").agg("UnitPrice" * "Quantity" * (1 - "Discount"):"sum")
 
-print(cli)
+
+#primero creo la columna con el calculo:
+od["monto_total"] = od["UnitPrice"] * od["Quantity"] * (1 - od["Discount"])
+
+od= od.groupby("OrderID")["monto_total"].sum()
+print(od.sort_values(ascending=False).head())
+
