@@ -21,7 +21,9 @@ engine = create_engine(
 # traigo tablas que necesito:
 
 prod= pd.read_sql("Select ProductID, ProductName, CategoryID, UnitPrice, UnitsInStock from Products", engine)
-cli= pd.read_sql("Select OrderID, CustomerID from Orders", engine)
+cli= pd.read_sql("Select OrderID, CustomerID, EmployeeID from Orders", engine)
+od= pd.read_sql("Select OrderID, ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
+emp=pd.read_sql("Select EmployeeID, LastName from Employees"), engine
 
 
 prod["columna_categoria"] = prod.apply(lambda row: "Económico" if row["UnitPrice"] <= 15 else "Medio" if (row["UnitPrice"] > 15) & (row["UnitPrice"] <= 50) else "Premium", axis = 1)
@@ -64,3 +66,13 @@ Guardá el resultado en una variable y printealo
 prod = prod.groupby("CategoryID").agg({"UnitPrice": ["mean", "max"],"ProductID" : "size"})
 
 print(prod)
+
+"""
+Calcular la suma total de ventas por empleado usando las tablas Orders y Order Details, 
+ordenar de mayor a menor y mostrar los 5 primeros.Calcular la suma total de ventas por 
+empleado usando las tablas Orders y Order Details, ordenar de mayor a menor y mostrar los 5 primeros.
+"""
+
+cli["monto_total"] = cli.groupby("EmployeeID").agg("UnitPrice" * "Quantity" * (1 - "Discount"):"sum")
+
+print(cli)
