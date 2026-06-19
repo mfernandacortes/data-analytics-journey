@@ -33,10 +33,12 @@ print(promedio)
 
 
 promedio = df["UnitPrice"].mean
-"""
+
 data = {"ProductID": [1, 2, 3], "UnitPrice": [10.5, 25.0, 8.0]}
 df = pd.DataFrame(data)
 
 df[df["UnitPrice"] > 10 and df["UnitPrice"] < 25]
-
+"""
+od = pd.read_sql("Select OrderID, EmployeeID from Orders")
+print(od)
 # python leer_errores.py
