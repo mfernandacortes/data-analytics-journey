@@ -63,4 +63,13 @@ print(od_prod_cat["monto"])
 od_prod_cat=od_prod_cat.groupby(["CategoryID", "CategoryName"])["monto"].sum().sort_values(ascending=False)
 
 print(od_prod_cat)
+
+"""
+Usando Products de Northwind:
+Calcular el precio máximo y el precio mínimo de producto por categoría, 
+ordenado de mayor a menor por el precio máximo.
+"""
+
+od_prod_cat["maximo"]= od_prod_cat.groupby(['CategoryID', 'CategoryName'])["UnitPrice"].max().sort_values(ascending=False)
+print(od_prod_cat["maximo"])
 # python combinados9.py
