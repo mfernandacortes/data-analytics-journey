@@ -27,6 +27,15 @@ od_prod_cat= pd.merge(prod, cat, on ="CategoryID")
 
 
 
-precio_maximo= od_prod_cat.groupby(['CategoryID', 'CategoryName'])["UnitPrice"].max().sort_values(ascending=False)
-print(precio_maximo)
+#precio_maximo= od_prod_cat.groupby(['CategoryID', 'CategoryName'])["UnitPrice"].max().sort_values(ascending=False)
+#print(precio_maximo)
+
+#df.groupby("col").agg({"col1": ["mean", "max"], "col2": "size"})
+
+max_min= od_prod_cat.groupby(['CategoryID', 'CategoryName']).agg({"UnitPrice": ["max", "min"]})
+max_min = max_min.sort_values(by=("UnitPrice", "max"), ascending=False)
+
+
+print(max_min)
+
 # python combinados10.py
