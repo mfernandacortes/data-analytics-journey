@@ -16,4 +16,12 @@ df_total = pd.concat([clientes_arg, clientes_bra], ignore_index=True)
 
 print(df_total)
 
+#fillna: 
+"""
+dataframe original:
+
+df_limpio = df.copy()
+df_limpio["columna"] = df_limpio["columna"].fillna(valor)
+
+""" 
 #  python concat_ej.py
