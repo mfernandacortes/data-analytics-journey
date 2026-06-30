@@ -16,6 +16,7 @@ Unir ambos DataFrames con merge usando "empleado_id"
 Mostrar el resultado con print()
 """
 # repaso merge - inner join, filas sin match excluidas
+# Sofía no aparece porque no tiene ventas y el empleado_id 4 no aparece porque no existe en df_empleados
 
 emp_ventas = pd.merge(df_empleados, df_ventas, on="empleado_id")
 print(emp_ventas)
