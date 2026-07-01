@@ -18,7 +18,7 @@ engine = create_engine(
 )
 
 # traigo tablas que necesito:
-prod= pd.read_sql("select ProductID, ProductName, UnitPrice from Products", engine)
+prod= pd.read_sql("select ProductID, ProductName, UnitPrice, UnitsInStock from Products", engine)
 
 prod["precio_ars"]=prod["UnitPrice"].apply(lambda x:x * 1500)
 
@@ -27,5 +27,24 @@ prod["precio_ars"]=prod["UnitPrice"].apply(lambda x:x * 1500)
 prod["rango"]=prod["UnitPrice"].apply(lambda x: "caro" if x > 30 else "barato")
 
 print(prod)
+"""
+Usando la misma tabla Products:
 
+Crear una columna "descuento_10" aplicando un descuento del 10% al UnitPrice usando apply
+Crear una columna "estado" con:
+
+"sin stock" si UnitsInStock es 0
+"stock bajo" si UnitsInStock es menor a 10
+"ok" si no
+
+"""
+prod["descuento_10"]= prod["UnitPrice"].apply(lambda x: x * 0.90)
+
+print(prod)
+# error (elif no existe en lambda):
+# prod["estado"]= prod["UnitsInStock"].apply(lambda x: "sin stock" if x == 0 elif "ok" if x > 10 else "stock bajo")
+
+prod["estado"]=prod["UnitsInStock"].apply(lambda x: "sin stock" if x == 0 else "stock bajo" if x < 10 else "ok")
+
+print(prod)
 #  python funciones.py
