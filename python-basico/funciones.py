@@ -47,4 +47,20 @@ print(prod)
 prod["estado"]=prod["UnitsInStock"].apply(lambda x: "sin stock" if x == 0 else "stock bajo" if x < 10 else "ok")
 
 print(prod)
+
+"""
+La sintaxis es correcta. Ejercicio rápido con Northwind:
+
+Traer ProductName y UnitPrice de Products
+Crear columna "precio_doble" multiplicando UnitPrice por 2 con apply
+Crear columna "rango" con "caro" si UnitPrice > 30, "barato" si no
+"""
+
+prod["precio_doble"]=prod["UnitPrice"].apply(lambda x: x * 2)
+
+prod["rango"]= prod["UnitPrice"].apply(lambda x: "caro" if x > 30 else "barato")
+
+print(prod)
+
+
 #  python funciones.py
