@@ -62,5 +62,13 @@ prod["rango"]= prod["UnitPrice"].apply(lambda x: "caro" if x > 30 else "barato")
 
 print(prod)
 
+"""
+Traer ProductName y UnitPrice de Products
+Crear columna "impuesto" agregando 21% al UnitPrice con apply
+"""
+
+prod["impuesto"]= prod["UnitPrice"].apply(lambda x : x * 1.21)
+
+print(prod)
 
 #  python funciones.py
