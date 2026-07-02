@@ -71,4 +71,12 @@ prod["impuesto"]= prod["UnitPrice"].apply(lambda x : x * 1.21)
 
 print(prod)
 
+"""
+Traer ProductName y UnitPrice de Products
+Crear columna "precio_mayorista" aplicando un descuento del 25% con apply
+"""
+prod["precio_mayorista"]= prod["UnitPrice"].apply(lambda x: x * 0.75)
+
+print(prod)
+
 #  python funciones.py
