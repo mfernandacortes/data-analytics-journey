@@ -79,4 +79,15 @@ prod["precio_mayorista"]= prod["UnitPrice"].apply(lambda x: x * 0.75)
 
 print(prod)
 
+"""
+Sobre el DataFrame de Products de Northwind, crear una columna nueva llamada 
+estado_stock que clasifique cada producto según estas condiciones combinadas:
+
+Si UnitsInStock == 0 y Discontinued == 1 → "Sin stock - discontinuado"
+Si UnitsInStock == 0 y Discontinued == 0 → "Sin stock - reponer"
+Si UnitsInStock > 0 → "Disponible"
+"""
+prod["Estado_stock"]=prod["UnitsInStock"].apply(lambda x: "Sin stock" if x ==0 else "Disponible")
+
+print(prod)
 #  python funciones.py
