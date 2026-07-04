@@ -18,7 +18,7 @@ engine = create_engine(
 )
 
 # traigo tablas que necesito:
-prod= pd.read_sql("select ProductID, ProductName, UnitPrice, UnitsInStock from Products", engine)
+prod= pd.read_sql("select ProductID, ProductName, UnitPrice, UnitsInStock, Discontinued from Products", engine)
 
 prod["precio_ars"]=prod["UnitPrice"].apply(lambda x:x * 1500)
 
@@ -90,4 +90,28 @@ Si UnitsInStock > 0 → "Disponible"
 prod["Estado_stock"]=prod["UnitsInStock"].apply(lambda x: "Sin stock" if x ==0 else "Disponible")
 
 print(prod)
+
+prod_dfnuevo=prod.copy()
+"""
+Sobre el DataFrame Products de Northwind, crear una función llamada clasificar_stock que reciba una fila 
+y devuelva:
+
+"Sin stock - discontinuado" si UnitsInStock == 0 y Discontinued == 1
+"Sin stock - reponer" si UnitsInStock == 0 y Discontinued == 0
+"Disponible" si UnitsInStock > 0
+
+Aplicar esa función con apply sobre un DataFrame nuevo (sin tocar el original) y guardar el resultado en una columna llamada estado_stock.
+"""
+def clasificar(row):
+    if row["UnitsInStock"] == 0 and row["Discontinued"] == 1:
+        return "Sin stock, discontinuado"
+    elif row["UnitsInStock"] ==0 and row["Discontinued"] == 0:
+        return "Sin stock, reponer"
+    else:
+        return "Disponible"
+
+
+prod_dfnuevo["clasificar_stock"] = prod_dfnuevo.apply(clasificar, axis = 1)
+
+print(prod_dfnuevo)
 #  python funciones.py
