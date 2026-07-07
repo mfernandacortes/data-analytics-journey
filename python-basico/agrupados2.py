@@ -50,15 +50,20 @@ Ordenar de mayor a menor por unidades vendidas.
 
 #merge
 c_prod = pd.merge(cat, prod, on="CategoryID")
-c_prod_od = pd.merge(c_prod, od, on="ProductID")
+# como el nombre UnitPrice se repite en cada df, tengo que diferenciarlos:
+c_prod_od = pd.merge(c_prod, od, on="ProductID", suffixes=("_producto", "pedido"))
 
 #print(c_prod_od)
 
 #agrupo por categoría para saber cuantos productos se vendieron
 
 # nombre del df nuevo=df a agrupar. groupby("campo a agrupar")["columna"].funcion()
-agrup = c_prod_od.groupby("CategoryName")["Quantity"].sum()
+#agrup = c_prod_od.groupby("CategoryName")["Quantity"].sum()
 
-print(agrup)
+
+# ahora con agg:
+agrup_agg = c_prod_od.groupby("CategoryName").agg({"ProductID": "nunique", "Quantity": ["sum", "mean"], "UnitPrice_producto":["mean"]})
+
+print(agrup_agg.sort_values(("Quantity", "sum"), ascending=False))
 
 #  python agrupados2.py
