@@ -62,5 +62,23 @@ resultado_final = c_pood.groupby("CustomerID").agg({
 })
 
 print(resultado_final)
-# continuamos parte 2
+# continuamos parte 2:
+top_15 = resultado_final.sort_values("monto", ascending=False).head(15)
+
+def clasificacion(row):
+    if row["monto"] > 20000:
+        return "Premium"
+    elif row["OrderID"] > 20:
+        return "Frecuente"
+    else:
+        return "Standard"
+
+
+print(resultado_final)
+
+top_15 = top_15.copy()
+top_15["segmento"] = top_15.apply(clasificacion, axis=1)
+
+print(top_15)
+
 #  python evaluacion.py
