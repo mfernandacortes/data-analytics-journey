@@ -44,5 +44,28 @@ agrup_pod=p_od.groupby(["ProductID", "ProductName"]).agg({
 print(agrup_pod)
 
 # seguir con lo que falta: item 3 y 4
+# top 10
+top_10 = agrup_pod.sort_values(by="Quantity", ascending=False).head(10)
+print(top_10)
+
+#clasificación de productos:
+"""
+   - "Estrella" si las unidades vendidas superan 1000
+   - "Popular" si aparece en más de 40 pedidos distintos (y no es Estrella)
+   - "Normal" en cualquier otro caso
+"""
+clasif= top_10.copy()
+
+def clasificacion(row):
+    if row["Quantity"] > 1000:
+        return "Estrella"
+    elif row["OrderID"] > 40:
+        return["Popular"]
+    else:
+        return "Normal"
+    
+clasif["clasificacion"]= clasif.apply(clasificacion, axis=1)
+
+print(clasif)
 
 #  python practica1.py
