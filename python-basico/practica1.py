@@ -45,6 +45,11 @@ print(agrup_pod)
 
 # seguir con lo que falta: item 3 y 4
 # top 10
+
+# df["columna"].sort_values() → ordena esa columna sola, el resto se pierde
+# df.sort_values(by="columna") → ordena el DataFrame entero usando esa columna como criterio,
+# todas las columnas se mantienen
+
 top_10 = agrup_pod.sort_values(by="Quantity", ascending=False).head(10)
 print(top_10)
 
