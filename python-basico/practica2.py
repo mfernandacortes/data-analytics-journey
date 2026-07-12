@@ -46,6 +46,16 @@ agrup_cat = agrup_cat.groupby(["CategoryID", "CategoryName"]).agg({
 print(agrup_cat)
 
 #Parte 2: (4 y 5)
+total=agrup_cat.sort_values(by="monto", ascending=False)
 
-
+def clasificar(row):
+    if row["monto"] > 100000:
+        return "Alta facturación"
+    elif row["monto"] > 50000:
+        return "Media"
+    else:
+        return "Baja"
+    
+total["peso_categoria"]= total.apply(clasificar, axis = 1)
+print(total)
 # python practica2.py
