@@ -44,8 +44,27 @@ agrup_emp=agrup_emp.groupby(["EmployeeID", "LastName"]).agg({
     "OrderID": "nunique"
 
 })
+"""
+Con apply y def (axis=1), agregar columna "categoria_vendedor":
+   - "Top" si el monto supera 150000
+   - "Medio" si supera 80000 (y no es Top)
+   - "Base" en cualquier otro caso
+
+"""
+
+agrup_emp=agrup_emp.sort_values(by="monto", ascending=False)
+
+def clasificar(row):
+    if row["monto"] > 150000:
+        return "Top"
+    elif row["monto"] > 80000:
+        return "Medio"
+    else:
+        return "Base"
+
+# agregar categoria vendedor:
+agrup_emp["categoria_vendedor"] = agrup_emp.apply(clasificar, axis=1)
 
 print(agrup_emp)
-#parte 2 (seguir)
 
 #  python practica4.py
