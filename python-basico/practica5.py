@@ -44,8 +44,18 @@ agrup_pais=agrup_pais.groupby("Country").agg({
     "OrderID":"nunique",
     "CustomerID":"nunique"
 })
+# el head siempre después del sort values sino corta a los primeros 10 antes de ordenar
+agrup_pais=agrup_pais.sort_values(by="monto", ascending=False).head(10)
 
-print(agrup_pais.sort_values(by="monto", ascending=False).head(10))
+def clasificar(row):
+    if row["monto"] > 100000:
+        return "Mercado clave"
+    elif row["monto"] > 30000:
+        return "Mercado medio"
+    else:
+        return "Mercado chico"
+agrup_pais["tipo_mercado"]=agrup_pais.apply(clasificar, axis = 1)
 
+print(agrup_pais)
 
 # python practica5.py
