@@ -29,14 +29,12 @@ Usar las tablas Products, Categories y Order Details de Northwind.
 p=pd.read_sql("Select ProductID, ProductName, CategoryID from Products", engine)
 c=pd.read_sql("Select CategoryID, CategoryName from Categories", engine)
 od=pd.read_sql("Select OrderID, ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
-
 #merge:
 pc=pd.merge(p,c, on="CategoryID")
 pc_od=pd.merge(pc, od, on="ProductID")
 
 # calculo la nueva columna monto:
 pc_od["monto"]=pc_od["Quantity"]*pc_od["UnitPrice"]*(1-pc_od["Discount"])
-print(pc_od)
 agrup=pc_od.copy()
 
 agrup=agrup.groupby(["CategoryID","CategoryName"]).agg({
@@ -44,6 +42,18 @@ agrup=agrup.groupby(["CategoryID","CategoryName"]).agg({
     "ProductID":"nunique",
     "UnitPrice":"mean"
 })
-
+agrup=agrup.sort_values(by="monto", ascending=False)
+# con lo pedido en el ejercicio original daba solo rendimiento alto o medio, cambié los montos para probar 
+# las 3 ramas
+def clasificar(row):
+    if row["monto"]>200000:
+        return "Alto"
+    elif row["monto"] > 150000:
+        return "Medio"
+    else:
+        return "Bajo"
+    
+agrup["rendimiento"]=agrup.apply(clasificar, axis=1)
 print(agrup)
+
 #  python practica6.py
