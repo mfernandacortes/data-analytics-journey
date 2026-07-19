@@ -32,18 +32,30 @@ e=pd.read_sql("select EmployeeID, LastName from Employees", engine)
 o_od=pd.merge(o, od, on="OrderID")
 p_od_e=pd.merge(o_od, e, on="EmployeeID")
 
-#ahora a calcular el monto facturado agregando columna nueva:
+#ahora calculo el monto facturado agregando columna nueva:
 p_od_e["Monto"]=p_od_e["Quantity"]*p_od_e["UnitPrice"]*(1-p_od_e["Discount"])
 print(p_od_e)
 
-#agrupar por empleados:
+#agrupo por empleados:
 agrup_emp=p_od_e.copy()
 agrup_emp=agrup_emp.groupby(["EmployeeID", "LastName"]).agg({
     "Monto":["sum","mean"],
     "OrderID":"nunique"
 })
-print(agrup_emp)
 
 # hacer puntos 4 y 5:
+agrup_emp=agrup_emp.sort_values(by=("Monto", "sum"), ascending=False)
+# defino la función que los clasifica, esta vez utilizamos tupla para distinguir si quiero la suma o el promedio del Monto:
+def clasifica(row):
+    if row[("Monto", "mean")] > 700:
+        return "Alta"
+    if row[("Monto", "mean")] > 500:
+        return "Media"
+    else:
+        return "Baja"
+# agrego la columna eficiencia para llamar a la función y mostrar la clasificación:
+agrup_emp["eficiencia"]=agrup_emp.apply(clasifica, axis=1)
+
+print(agrup_emp)
 
 # python practica7.py
