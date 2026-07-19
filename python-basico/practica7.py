@@ -58,4 +58,6 @@ agrup_emp["eficiencia"]=agrup_emp.apply(clasifica, axis=1)
 
 print(agrup_emp)
 
+#sobre esta práctica hay un hallazgo para documentar sobre las estrategias de ventas de empleados y su eficiencia
+
 # python practica7.py
