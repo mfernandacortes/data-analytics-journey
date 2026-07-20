@@ -35,7 +35,7 @@ cp_od=pd.merge(cp, od, on="ProductID")
 
 # calcular la columna monto:
 cp_od["monto"]=cp_od["Quantity"] * cp_od["UnitPrice"] * (1 - cp_od["Discount"])
-print(cp_od)
+
 
 #agrupar por categorias:
 agrup_cat=cp_od.copy()
@@ -45,6 +45,15 @@ agrup_cat=agrup_cat.groupby(["CategoryID", "CategoryName"]).agg({
 })
 
 agrup_cat=agrup_cat.sort_values(by=("monto", "sum"), ascending=False)
-print(agrup_cat)
 
+def categorizar(row):
+    if row["monto","mean"] > 600:
+        return "Alto"
+    elif row["monto", "mean"] > 350:
+        return "Medio"
+    else:
+        return "Bajo"
+    
+agrup_cat["ticket"]=agrup_cat.apply(categorizar, axis=1)
+print(agrup_cat)
 # python practica8.py
