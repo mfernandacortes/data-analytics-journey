@@ -41,6 +41,19 @@ agrup_pais=agrup_pais.groupby("Country").agg({
     "OrderID":"nunique"
 
 })
-print()
 
+#ordenar por promedio de mayor a menor
+agrup_pais=agrup_pais.sort_values(by=("monto","mean"), ascending=False)
+#definir perfil:
+#primero creo la función:
+def definir(row):
+    if row["monto", "mean"] > 800:
+        return "Ticket alto"
+    elif row["monto", "mean"] > 500:
+        return "Ticket medio"
+    else:
+        return "Ticket bajo"
+    
+agrup_pais["perfil_compra"]=agrup_pais.apply(definir, axis=1)
+print(agrup_pais)
 #  python practica9.py
