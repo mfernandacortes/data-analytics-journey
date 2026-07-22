@@ -23,12 +23,10 @@ Usar las tablas Suppliers, Products y Order Details de Northwind.
    - "Intermedio" si supera 800 (y no es mayorista)
    - "Pequeño" en cualquier otro caso
 """
-
 # tablas:
 s=pd.read_sql("select SupplierID, CompanyName from Suppliers", engine)
 p=pd.read_sql("select ProductID, ProductName, SupplierID from Products", engine)
 od=pd.read_sql("select OrderID, ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
-
 #merge:
 sp=pd.merge(s, p, on="SupplierID")
 sp_od=pd.merge(sp, od, on="ProductID")
@@ -41,5 +39,17 @@ agrup_sp=agrup_sp.groupby(["SupplierID", "CompanyName"]).agg({
     "Quantity":"sum",
     "ProductID":"nunique"
 })
-print(sp_od)
+#ordeno con el argumento quantity sum:
+agrup_sp=agrup_sp.sort_values(by=("Quantity", "sum"), ascending=False)
+
+def clasificar(row):
+    if row["Quantity", "sum"] > 1500:
+        return "Mayorista"
+    elif row["Quantity", "sum"] > 800:
+        return "Intermedio"
+    else:
+        return "Minorista"
+    
+agrup_sp["escala"]=agrup_sp.apply(clasificar, axis=1)
+print(agrup_sp)
 # python practica10.py
