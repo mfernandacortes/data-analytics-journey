@@ -51,4 +51,16 @@ print(agrup_ship)
    - "Envíos medianos" si supera 450 (y no es grande)
    - "Envíos chicos" en cualquier otro caso
 """
+agrup_ship=agrup_ship.sort_values(by=("monto", "mean"), ascending=False)
+
+def clasif_envios(row):
+    if row["monto","mean"]> 600:
+        return "Envíos grandes"
+    elif row["monto", "mean"] > 450:
+        return "Envios medianos"
+    else:
+        return "Envíos chicos"
+
+agrup_ship["tipo_envio"]=agrup_ship.apply(clasif_envios, axis=1)
+print(agrup_ship)
 # python practica11.py
