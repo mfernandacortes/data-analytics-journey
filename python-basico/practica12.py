@@ -39,6 +39,22 @@ pod_ag=pod_ag.groupby(["ProductID", "ProductName"]).agg({
     "Quantity":"sum",
     "OrderID":"nunique"
 })
-print(pod_ag)
 
+"""
+Para una decisión de stock real, esto importa muchísimo: los de ticket alto 
+y rotación baja te inmovilizan capital, aunque cada venta sea grande.
+"""
+pod_ag=pod_ag.sort_values(by=("monto", "mean"), ascending=False).head(15)
+
+def clasif(row):
+    if row["Quantity","sum"] > 800:
+        return "Alta"
+    elif row["Quantity","sum"] > 400:
+        return "Media"
+    else:
+        return "Baja"
+
+
+pod_ag["rotacion"]=pod_ag.apply(clasif, axis=1)
+print(pod_ag)
 # python practica12.py
