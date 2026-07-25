@@ -37,5 +37,16 @@ agrup_cat=agrup_cat.groupby(["CategoryID", "CategoryName"]).agg({
     "monto":["sum", "mean"],
     "OrderID":"nunique"
 })
+
+agrup_cat=agrup_cat.sort_values(by=("monto", "sum"), ascending=False)
+def clasif(row):
+    if row["monto", "sum"] > 200000:
+        return "Alto"
+    elif row["monto", "sum"] > 120000:
+        return "Medio"
+    else:
+        return "Bajo"
+    
+agrup_cat["aporte"]=agrup_cat.apply(clasif, axis=1)
 print(agrup_cat)
 # python practica13.py
