@@ -16,11 +16,6 @@ Usar las tablas Employees, Orders y Order Details de Northwind.
    - monto → sum Y mean
    - Quantity → sum
    - OrderID → nunique
-4. Ordenar de mayor a menor por el monto promedio (mean).
-5. Con apply y def (axis=1), agregar columna "perfil":
-   - "Ticket alto" si el monto promedio (mean) supera 650
-   - "Ticket medio" si supera 500 (y no es alto)
-   - "Ticket bajo" en cualquier otro caso
 """
 # tablas:
 e=pd.read_sql("select EmployeeID, LastName from Employees", engine)
@@ -41,5 +36,25 @@ agrup_emp=agrup_emp.groupby(["EmployeeID", "LastName"]).agg({
     "Quantity":"sum",
     "OrderID":"nunique"
 })
+"""
+4. Ordenar de mayor a menor por el monto promedio (mean).
+5. Con apply y def (axis=1), agregar columna "perfil":
+   - "Ticket alto" si el monto promedio (mean) supera 650
+   - "Ticket medio" si supera 500 (y no es alto)
+   - "Ticket bajo" en cualquier otro caso
+"""
+
+# ordenar de mayor a menor por monto promedio:
+agrup_emp=agrup_emp.sort_values(by=("monto","mean"), ascending=False)
+#clasificar por perfil:
+def clasificar(row):
+    if row["monto", "mean"] > 650:
+        return "Ticket alto"
+    elif row["monto", "mean"] > 500:
+        return "Ticket medio"
+    else:
+        return "Ticket bajo"
+agrup_emp["perfil"]=agrup_emp.apply(clasificar, axis=1)
 print(agrup_emp)
+
 # python practica14.py
