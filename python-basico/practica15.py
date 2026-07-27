@@ -40,7 +40,7 @@ agrup_cat=agrup_cat.groupby(["CategoryID", "CategoryName"]).agg({
     "CustomerID":"nunique"
 })
 
-print(agrup_cat)
+
 """
 4. Ordenar de mayor a menor por el monto promedio (mean).
 5. Con apply y def (axis=1), agregar columna "perfil_categoria":
@@ -49,5 +49,31 @@ print(agrup_cat)
    - "Estándar" en cualquier otro caso
 
 """
-
+#punto 4 ordenar de mayor a menor por promedio monto:
+agrup_cat=agrup_cat.sort_values(by=("monto", "mean"), ascending=False)
+#punto 5 clasificar:
+def clasif(row):
+    if row["monto", "mean"] > 600:
+        return "Premium"
+    elif row["Quantity", "sum"] > 5000:
+        return "Volúmen"
+    else:
+        return "Estándar"
+    
+agrup_cat["perfil_categoria"]= agrup_cat.apply(clasif, axis=1)  
+print(agrup_cat)
 # python practica15.py
+
+"""
+Hallazgo:
+Premium (mean > 600): Meat/Poultry, Produce, Beverages, Dairy — los cuatro de ticket alto
+Volumen (Quantity > 5000, sin ser premium): Confections (7906), Condiments (5298), 
+Seafood (7681) — venden mucho pero con ticket más bajo
+Estándar: solo Grains/Cereals (mean 488, Quantity 4562 — no llega a ninguna de las dos 
+condiciones)
+
+El caso más interesante para leer: Seafood. Tiene el ticket promedio más bajo de todos
+ (397), pero es de los que más unidades vende (7681). Por eso cae en "Volumen" — su negocio es
+vender mucho a precio bajo, lo opuesto a Meat/Poultry (poco volumen, ticket altísimo de 942). 
+Las dos tuplas juntas dejan ver esa diferencia de modelo de negocio en la misma tabla.
+"""
