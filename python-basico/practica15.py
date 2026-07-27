@@ -62,7 +62,7 @@ def clasif(row):
     
 agrup_cat["perfil_categoria"]= agrup_cat.apply(clasif, axis=1)  
 print(agrup_cat)
-# python practica15.py
+
 
 """
 Hallazgo:
@@ -77,3 +77,17 @@ El caso más interesante para leer: Seafood. Tiene el ticket promedio más bajo 
 vender mucho a precio bajo, lo opuesto a Meat/Poultry (poco volumen, ticket altísimo de 942). 
 Las dos tuplas juntas dejan ver esa diferencia de modelo de negocio en la misma tabla.
 """
+
+"""
+Sobre el resultado (agrup_cat, el de las 8 categorías con perfil):
+
+1. Mostrar SOLO las categorías "Premium" (filtrá el DataFrame por la columna perfil_categoria).
+2. De esas Premium, mostrá solo dos columnas: el monto promedio ("monto","mean") y la cantidad 
+de clientes ("CustomerID","nunique").
+"""
+
+print(agrup_cat[agrup_cat["perfil_categoria"]=='Premium'])
+
+#print(agrup_cat)
+
+# python practica15.py
