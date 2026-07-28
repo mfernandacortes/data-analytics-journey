@@ -38,5 +38,24 @@ agrup_prod=agrup_prod.groupby(["ProductID", "ProductName"]).agg({
    - "Nicho" si monto mean supera 50 (y no es estrella)
    - "Común" en cualquier otro caso
 """
+# ordenar de mayor a menor por monto total y top 10:
+agrup_prod=agrup_prod.sort_values(by=("monto","sum"), ascending=False).head(10)
+# clasificación de clase:
+def clasificar(row):
+    if row[("monto","sum")] > 40000 and row[("Quantity", "sum")] > 1000:
+        return "Estrella"
+    elif row[("monto","mean")] > 50:
+        return "Nicho"
+    else:
+        return "Común"
+    
+agrup_prod["clase"]=agrup_prod.apply(clasificar, axis=1)    
 print(agrup_prod)
+
+"""
+Y fijate el caso perfecto de por qué el and importa: Côte de Blaye factura muchísimo
+ (141K, el más alto) pero vendió solo 623 unidades. No llega a "Estrella" porque le falta 
+ el volumen (>1000), aunque le sobra facturación. El and exige las dos condiciones, así que 
+ queda "Nicho" — producto caro que se vende poco. Exactamente lo que se buscaba distinguir.
+"""
 # python practica16.py
