@@ -15,9 +15,12 @@ Usar las tablas Customers, Orders y Order Details de Northwind.
 3. Agrupar por Country y calcular en un solo agg:
    - monto → sum Y mean
    - OrderID → nunique
-
+4. Ordenar de mayor a menor por monto total (sum).
+5. Con apply y def (axis=1), agregar columna "mercado":
+   - "Fuerte" si monto sum supera 50000 Y pedidos (OrderID nunique) supera 30
+   - "Selecto" si monto mean supera 600 (y no es fuerte)
+   - "Menor" en cualquier otro caso
 """
-
 
 #tablas:
 c=pd.read_sql("select CustomerID, CompanyName, Country from Customers", engine)
@@ -38,13 +41,6 @@ agrup_pais=agrup_pais.groupby("Country").agg({
     "OrderID": "nunique"
 })
 
-"""
-4. Ordenar de mayor a menor por monto total (sum).
-5. Con apply y def (axis=1), agregar columna "mercado":
-   - "Fuerte" si monto sum supera 50000 Y pedidos (OrderID nunique) supera 30
-   - "Selecto" si monto mean supera 600 (y no es fuerte)
-   - "Menor" en cualquier otro caso
-"""
 
 #ordenar de mayor a menor por monto total sum:
 agrup_pais=agrup_pais.sort_values(by=("monto","sum"), ascending=False)
