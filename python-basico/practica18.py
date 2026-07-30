@@ -38,9 +38,8 @@ agrup_pais=agrup_pais.groupby("Country").agg({
     "ProductID":"nunique"
 })
 
-print(agrup_pais)
-# python practica18.py
 
+# 
 """
 4. Ordenar de mayor a menor por monto total (sum).
 5. Con apply y def (axis=1), agregar columna "origen":
@@ -48,4 +47,33 @@ print(agrup_pais)
    - "Especializado" si monto mean supera 500 (y no es clave)
    - "Menor" en cualquier otro caso
    
+"""
+# ordenar de mayor a menor por monto total:
+agrup_pais=agrup_pais.sort_values(by=("monto","sum"), ascending=False)
+# clasificar:
+def clasificar(row):
+    if (row["monto","sum"] > 60000) and (row["ProductID", "nunique"] > 5):
+        return "Clave"
+    elif row["monto", "mean"] > 500:
+        return "Especializado"
+    else:
+        return "Menor"
+
+agrup_pais["origen"]=agrup_pais.apply(clasificar, axis=1)
+
+print(agrup_pais)
+
+"""
+Hallazgo:
+France — factura MÁS que nadie (277K) con el ticket MÁS alto (1568), pero solo 5 productos 
+"Especializado", no "Clave". Depende de pocos productos caros (el Côte de Blaye). Es el 
+ejemplo perfecto de concentración.
+Germany, Australia, USA, UK → "Clave": monto alto Y diversificados (7-12 productos). Estos
+ son los proveedores-país sólidos.
+USA es el caso opuesto a France: ticket bajo (440) pero 12 productos — el más diversificado 
+de todos. Factura por variedad, no por concentración.
+
+France vs USA es la historia completa en dos filas: uno concentra (pocos productos carísimos), 
+el otro diversifica (muchos productos accesibles).
+
 """
