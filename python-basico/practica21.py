@@ -36,7 +36,6 @@ agrup_pais=agrup_pais.groupby("Country").agg({
     "monto":["sum", "mean"],
     "OrderID":"nunique"
 })
-print(agrup_pais)
 
 # python practica21.py
 """
@@ -47,8 +46,24 @@ print(agrup_pais)
    - "Bajo" en cualquier otro caso
 
 """
-#
+# ordenar de mayor a menor por monto total, la suma:
+agrup_pais=agrup_pais.sort_values(by=("monto","sum"), ascending=False)
+# definir función para clasificar el nivel agregando columna nueva:
+def clasificar(row):
+    if row["monto","sum"]>100000:
+        return "Top"
+    elif row["monto","sum"] > 40000:
+        return "Medio"
+    else:
+        return "Bajo"
+
+agrup_pais["nivel"]=agrup_pais.apply(clasificar, axis=1)
+print(agrup_pais)
 """
 Hallazgo:
+USA lidera en monto total facturado (245.584), pero Austria, en tercer lugar por
+facturación, tiene el ticket promedio más alto (1024 vs 697 de USA): hace pocos
+pedidos (40) pero de montos elevados. Caso claro de volumen vs ticket:
+facturar mucho no implica tener las ventas más grandes.
 
 """
