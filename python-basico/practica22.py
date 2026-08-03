@@ -44,14 +44,9 @@ agrup_emp=agrup_emp.groupby(["EmployeeID","LastName"]).agg(
         pedidos=("OrderID","nunique")
 )
  
-print(agrup_emp)
+
 # ordenar:
+agrup_emp=agrup_emp.sort_values(by="facturacion_total", ascending=False)
+print(agrup_emp)
 
-
-# clasificar (apply):
 # python practica22.py
-
-"""
-HALLAZGO:
-
-"""
