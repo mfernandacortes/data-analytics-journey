@@ -19,8 +19,6 @@ Usar las tablas Products, Categories y Order Details de Northwind.
 3. Agrupar por CategoryName y calcular en un solo agg (CON TUPLAS, no named):
    - monto → sum Y mean
    - Quantity → sum Y mean
-4. Ordenar de mayor a menor por el promedio de monto ("monto","mean").
-5. Mostrar SOLO las columnas ("monto","mean") y ("Quantity","mean") usando doble corchete.
 
 """
 
@@ -47,13 +45,19 @@ agrup_cat=agrup_cat.groupby(["CategoryID", "CategoryName"]).agg({
 })
 
 # ordenar:
-
-print(agrup_cat)
-# clasificar (apply):
-# python practica23.py
-
+"""
+4. Ordenar de mayor a menor por el promedio de monto ("monto","mean").
+5. Mostrar SOLO las columnas ("monto","mean") y ("Quantity","mean") usando doble corchete.
 
 """
+agrup_cat=agrup_cat.sort_values(by=("monto","mean"), ascending=False)
+
+# python practica23.py
+print(agrup_cat[[("monto","mean"),("Quantity","mean")]])
+"""
 HALLAZGO:
+Meat/Poultry tiene el monto promedio más alto (942) pero una cantidad promedio normal 
+(24, igual que todas). O sea, no vende más unidades — vende unidades más caras. Su ticket
+alto viene del precio del producto, no del volumen. Puro patrón volumen vs ticket, otra vez.
 
 """
