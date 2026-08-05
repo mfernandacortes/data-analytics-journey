@@ -37,12 +37,27 @@ co_od=co_od.groupby("City").agg({
     "monto":["sum","mean"],
     "OrderID":"nunique"
 })
-print(co_od)
+
 
 """
 4. Ordenar de mayor a menor por monto total ("monto","sum").
 5. Mostrar el top 10 con head(10).
 
+"""
+# ordenar de mayor a menor
+co_od=co_od.sort_values(by=("monto","sum"), ascending=False)
+
+# Mostrar el top 10:
+
+print(co_od.head(10))
+
+"""
+HALLAZGO:
+Cunewalde lidera en facturación (110K) con ticket altísimo (1282) pero solo 28 pedidos — o sea, 
+es una ciudad con pocos clientes pero que compran muchísimo. Comparala con London: 4º en 
+facturación (52K) pero con 46 pedidos y ticket mucho más bajo (471). London vende por volumen
+ (muchos pedidos chicos), Cunewalde por ticket (pocos pedidos enormes).
+ 
 """
 
 # python practica24.py
