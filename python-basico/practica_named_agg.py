@@ -206,8 +206,15 @@ print(ej6)
 
 # TU CÓDIGO:
 
-
-
+ej7=df.copy()
+ej7=ej7.groupby("categoria").agg(
+    cant_total=("cantidad", "sum"),
+    ingreso_total=("ingreso", "sum"),
+    ticket_promedio=("ingreso", "mean"),
+    vendedores=("vendedor", "nunique"),
+)
+ej7=ej7.sort_values("ingreso_total", ascending=False).reset_index()
+print(ej7)
 # =====================================================================
 # =====================================================================
 #   SOLUCIONES  —  no mires hasta intentar cada uno 🙈
