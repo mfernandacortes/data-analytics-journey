@@ -165,7 +165,7 @@ ej5=ej5.groupby("categoria").agg(
     rango_precio=("precio_unitario",lambda s: s.max() - s.min())
 )
 print(ej5)
-# python practica_named_agg.py
+
 # =====================================================================
 #  EJERCICIO 6  —  nunique + count + reset_index
 # =====================================================================
@@ -180,9 +180,14 @@ print(ej5)
 #  2    Carla                    4            5
 
 # TU CÓDIGO:
+ej6 = df.groupby("vendedor").agg(
+    productos_distintos=("producto", "nunique"),
+    operaciones=("producto", "count"),
+).reset_index()
 
+print(ej6)
 
-
+# python practica_named_agg.py
 # =====================================================================
 #  EJERCICIO 7  —  Combo completo (integrador)
 # =====================================================================
