@@ -22,11 +22,7 @@ monto_total → sum de monto
 ticket_promedio → mean de monto
 pedidos → nunique de OrderID
 clientes → nunique de CustomerID
-Ordená de mayor a menor por monto_total.
-Con apply + def (axis=1), agregá una columna mercado:
-"Clave" si monto_total supera 100000
-"Medio" si supera 30000 (y no es clave)
-"Chico" en cualquier otro caso
+
 
 """
 
@@ -52,14 +48,26 @@ agrup_pais=agrup_pais.groupby("Country").agg(
     clientes = ("CustomerID","nunique")
 )
 print(agrup_pais)
+"""
+Ordená de mayor a menor por monto_total.
+Con apply + def (axis=1), agregá una columna mercado:
+"Clave" si monto_total supera 100000
+"Medio" si supera 30000 (y no es clave)
+"Chico" en cualquier otro caso
+
+"""
 # python practica25.py
 # ordenar:
-
+agrup_pais=agrup_pais.sort_values(by="monto_total", ascending=False)
 
 # clasificar (apply):
+def clasif(row):
+    if row["monto_total"] > 100000:
+        return "Clave"
+    elif row["monto_total"] > 30000:
+        return "Medio"
+    else:
+        return "Chico"
+agrup_pais["mercado"]=agrup_pais.apply(clasif, axis=1)
+print(agrup_pais)
 
-
-"""
-HALLAZGO:
-
-"""
