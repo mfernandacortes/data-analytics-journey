@@ -55,5 +55,17 @@ Con apply + def (axis=1), agregar columna nivel:
 (accediendo al promedio con la tupla dentro del row).
 
 """
+# clasifico por ticket promedio; corté en 800 y 500 para separar mercados 
+# de alto ticket
+def clasi(row):
+    if row["monto","mean"] > 800:
+        return "Alto"
+    elif row["monto","mean"] > 500:
+        return "Medio"
+    else:
+        return "Bajo"
+
+agrup_pais["nivel"]=agrup_pais.apply(clasi, axis=1)
 print(agrup_pais)
 
+# python practica26.py
