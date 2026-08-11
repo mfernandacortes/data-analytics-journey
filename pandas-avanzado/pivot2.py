@@ -39,16 +39,12 @@ df=pd.merge(od_ocp,ca,on="CategoryID")
 
 Columna calculada: monto = Quantity * UnitPrice * (1 - Discount)
 
-PIVOT:
-Con pd.pivot_table, armar una tabla cruzada:
-  - index = Country (países en filas)
-  - columns = CategoryName (categorías en columnas)
-  - values = monto
-  - aggfunc = "sum"   (declararlo siempre, no dejar el default)
-  - fill_value = 0    (para que los cruces sin datos queden en 0, no NaN)
+Consigna:
 
-Guardar el resultado en una variable nueva.
-
+Mismo df (antes del groupby, con Country, CategoryName, OrderID).
+index="Country", columns="CategoryName".
+values="OrderID", aggfunc="nunique" — pedidos distintos por país y categoría (no montos).
+fill_value=0.
 """
 # monto:
 df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
@@ -59,10 +55,10 @@ resultado = pd.pivot_table(
     df,
     index="Country",
     columns="CategoryName",
-    values= "monto",
-    aggfunc="sum",
+    values= "OrderID",
+    aggfunc="nunique",
     fill_value=0
 )
 print(resultado)
 
-# python pivot1.py
+# python pivot2.py
