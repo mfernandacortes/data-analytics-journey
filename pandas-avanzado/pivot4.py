@@ -65,6 +65,10 @@ HALLAZGO:
 Con estas comparaciones de años, se ve claramente que el año 1998 tiene
 una gran caída de números, esto sucede porque el dataset llegó hasta mayo de 
 1998, o sea, es parcial. Este tipo de diferencias en una empresa puede mostrar
-la pronta quiebra de la misma.
+la pronta quiebra de la misma, pero: 
+Antes de sacar conclusiones sobre 1998, hay que confirmar si el dataset está 
+completo. El análisis se basa en los datos proporcionados; si en un caso real 
+faltara información, correspondería pedirla antes de afirmar nada sobre el 
+negocio.
 
 """
