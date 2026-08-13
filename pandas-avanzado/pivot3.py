@@ -49,8 +49,23 @@ print(df)
 Mismas tablas + columna anio (.dt.year sobre OrderDate)
 pd.pivot_table(df, index="LastName", columns="anio", 
 values="monto", aggfunc="sum", fill_value=0)
-
+resultado = pd.pivot_table(
+    df,
+    index="Country",
+    columns="CategoryName",
+    values= "monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(resultado)
 
 """
-
+piv= pd.pivot_table(
+    df,
+    index="LastName",
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 # python pivot3.py
