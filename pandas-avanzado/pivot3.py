@@ -36,6 +36,13 @@ df=od_oc.copy()
 df=df.groupby("Country").agg({
     "monto":["sum","mean"]
 })
+df=df.sort_values(by=("monto","sum"), ascending=False)
+def clasif(row):
+    if row["monto","sum"] > 100000:
+        return "Alto"
+    else:
+        return "Bajo"
+df=df.apply(clasif, axis=1)
 print(df)
 
 """
