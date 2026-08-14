@@ -25,13 +25,7 @@ CONSIGNA:
 # calcular monto:
 
 
-# agrupar y agg:
-
-
-# ordenar:
-
-
-# clasificar (apply):
+# pivot:
 
 
 """
