@@ -41,13 +41,13 @@ co_od["mes"]=co_od.OrderDate.dt.month
 df=pd.pivot_table(
     co_od,
     index="Country",
-    columns=
-    values=
-    aggfunc=
+    columns="mes",
+    values="monto",
+    aggfunc="sum",
     fill_value=0
 )
-
+print(df)
 """
 HALLAZGO:
-python pivot6.py
+
 """
