@@ -33,9 +33,17 @@ df=pd.merge(od_oe,c,on="CustomerID")
 df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 # trimestre=
 df["trimestre"]=df["OrderDate"].dt.quarter
-print(df)
-# pivot:
 
+# pivot:
+informe=pd.pivot_table(
+    df,
+    index=["EmployeeID","LastName"],
+    columns="trimestre",
+    values=["monto", "CustomerID"],
+    aggfunc={"monto": "sum", "CustomerID": "nunique"},
+    fill_value = 0
+)
+print(informe)
 # python pivot8.py
 """
 HALLAZGO:
