@@ -38,10 +38,20 @@ p=pd.read_sql("Select ProductID, SupplierID, ProductName, UnitPrice from Product
 sp=pd.merge(s,p,on="SupplierID")
 print(sp)
 # pivot:
-
-# python pivot9.py
+resultado=pd.pivot_table(
+    sp,
+    index=["SupplierID","CompanyName"],
+    values=["ProductID", "UnitPrice"],
+    aggfunc={"ProductID":"nunique","UnitPrice":"mean"},
+    fill_value=0
+)
+print(resultado)
 
 """
 HALLAZGO:
+"Aux joyeux ecclésiastiques": 3 productos, promedio $99 — 
+ese número alto tiene sentido porque uno de sus productos es el 
+Côte de Blaye a $263,50, que arrastra el promedio para arriba.
 
 """
+# python pivot9.py
