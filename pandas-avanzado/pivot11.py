@@ -17,7 +17,7 @@ y cuál fue su ticket promedio."
 """
 
 # traer tablas:
-c=pd.read_sql("Select CustomerID, COmpanyName from Customers", engine)
+c=pd.read_sql("Select CustomerID, CompanyName from Customers", engine)
 o=pd.read_sql("select OrderID, CustomerID from Orders", engine)
 od=pd.read_sql("select OrderID, Quantity,UnitPrice,Discount from [Order Details]", engine)
 
@@ -32,6 +32,13 @@ print(co_od)
 
 
 # pivot:
-
+informe=pd.pivot_table(
+    co_od,
+    index=["CustomerID","CompanyName"],
+    values=["OrderID","monto"],
+    aggfunc={"OrderID":"nunique", "monto":"mean"},
+    fill_value=0
+)
+print(informe)
 # python pivot11.py
 
