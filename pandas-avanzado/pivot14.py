@@ -29,9 +29,16 @@ df=pd.merge(cap_od,o,on="OrderID")
 # calcular monto:
 df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 df["trimestre"]=df["OrderDate"].dt.quarter
-print(df)
-# pivot:
 
+# pivot:
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID", "CategoryName"],
+    columns="trimestre",
+    values=["monto","Quantity"],
+    aggfunc={"monto":"sum", "Quantity":"sum"}
+)
+print(informe)
 # python pivot14.py
 
 
