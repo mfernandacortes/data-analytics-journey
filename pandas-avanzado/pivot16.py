@@ -33,13 +33,20 @@ capod_o=pd.merge(cap_od,o,on="OrderID")
 df=pd.merge(capod_o,c,on="CustomerID")
 
 # calcular monto:
-print(df)
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
+
 
 # pivot:
-
+# Con una función nueva para ver totales generales:
+informe=pd.pivot_table(
+    df,
+    index="Country",
+    columns=["CategoryID", "CategoryName"],
+    values=["monto","Quantity"],
+    aggfunc={"monto":"sum", "Quantity":"sum"},
+    fill_value=0,
+    margins=True,
+    margins_name="Total"
+)
 # python pivot16.py
-
-"""
-HALLAZGO:
-
-"""
+print(informe)
