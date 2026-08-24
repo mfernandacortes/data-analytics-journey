@@ -30,7 +30,16 @@ eo_od=pd.merge(eo,od,on="OrderID")
 eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
 
 # pivot:
-print(eo_od)
+informe=pd.pivot_table(
+    eo_od,
+    index=["EmployeeID", "LastName"],
+    values="monto",
+    aggfunc=["sum","mean"],
+    margins=True,
+    margins_name="Total",
+    fill_value=0
+)
+print(informe)
 # python pivot18.py
 """
 HALLAZGO:
