@@ -31,10 +31,21 @@ co_od["monto"]=co_od["Quantity"] * co_od["UnitPrice"] * (1 - co_od["Discount"])
 print(co_od)
 
 # pivot:
+informe=pd.pivot_table(
+    co_od,
+    index="ShipCountry",
+    values=["monto"],
+    aggfunc=["sum","mean"],
+    fill_value=0
+)
+
+print(informe)
 # python pivot19.py
 
 
 """
 HALLAZGO:
-
+Austria tiene el ticket promedio más alto (1024) pero está lejos 
+de ser el que más factura en total (128 mil, contra 245 mil de USA 
+o 230 mil de Germany).
 """
