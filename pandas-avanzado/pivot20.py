@@ -15,10 +15,6 @@ CONSIGNA:
 Mostrar, por transportista (Shippers), el monto total y el monto promedio de 
 las líneas de pedido, para saber cuál mueve más volumen y cuál tiene los 
 pedidos de mayor valor.
-
-Ojo: Orders.ShipVia se relaciona con Shippers.ShipperID — nombres de columna 
-distintos, así que vas a necesitar left_on/right_on en ese merge
-
 """
 
 # traer tablas:
@@ -32,11 +28,18 @@ so_od=pd.merge(so,od,on="OrderID")
 
 # calcular monto:
 so_od["monto"]=so_od["Quantity"] * so_od["UnitPrice"] * (1 - so_od["Discount"])
-print(so_od)
+
 
 # pivot:
+informe=pd.pivot_table(
+    so_od,
+    index=["ShipperID","CompanyName"],
+    values="monto",
+    aggfunc={"monto": ["sum", "mean"]},
+    fill_value=0
+)
 # python pivot20.py
-
+print(informe)
 """
 HALLAZGO:
 
