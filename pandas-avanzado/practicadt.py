@@ -27,9 +27,10 @@ od=pd.read_sql("select OrderID, Quantity, UnitPrice, Discount from [Order Detail
 eo=pd.merge(e,o,on="EmployeeID")
 eo_od=pd.merge(eo,od,on="OrderID")
 
-# calcular monto:
+# calcular monto:##
 eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
+eo_od["mes"]=eo_od["OrderDate"].dt.month
+print(eo_od["mes"].value_counts())
 
-print(eo_od)
 
 #  python practicadt.py
