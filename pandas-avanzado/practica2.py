@@ -31,10 +31,10 @@ eo_od=pd.merge(eo,od,on="OrderID")
 # calcular monto:
 eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1- eo_od["Discount"])
 
-# pivot:
-print(eo_od)
-# python practica2.py
-"""
-HALLAZGO:
+# crear la nueva columna para promedio usando transform:
 
-"""
+eo_od["promedio"]=eo_od.groupby(["EmployeeID","LastName"])["monto"].transform("mean")
+
+eo_od["diferencia"]=eo_od["monto"] - eo_od["promedio"]
+
+print(eo_od)
