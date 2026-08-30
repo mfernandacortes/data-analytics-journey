@@ -30,6 +30,15 @@ eo_od=pd.merge(eo,od,on="OrderID")
 
 # calcular monto:
 eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
+
+# ranking de valores: se agrupa por empleado, se rankea el monto de cada pedido 
+
+eo_od["ranking"] = eo_od.groupby(["EmployeeID","LastName"])["monto"].rank(method="dense", ascending=False)
+
+# ahora se ordena por ranking
+eo_od=eo_od.sort_values("ranking", ascending=True)
+
 print(eo_od)
+
 # python practicarank.py 
 
