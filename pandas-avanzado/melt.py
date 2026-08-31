@@ -34,6 +34,7 @@ eo_od=pd.merge(eo,od,on="OrderID")
 eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
 eo_od["anio"]=eo_od["OrderDate"].dt.year
 print(eo_od)
+
 # pivot:
 informe=pd.pivot_table(
     eo_od,
@@ -51,4 +52,15 @@ df_largo = informe.melt(
     value_name="monto_total"
 )
 print(df_largo)
+#paso a otro df para ver ranking
+eo_od2=eo_od.copy()
+# ranking de valores: se agrupa por empleado, se rankea el monto de cada pedido 
+
+eo_od2["ranking"] = eo_od.groupby(["EmployeeID","LastName"])["monto"].rank(method="dense", ascending=False)
+
+# ahora se ordena por ranking
+
+eo_od2["ranking"]=eo_od2.groupby(["EmployeeID","LastName"])["monto"].rank(method="dense", ascending=False)
+eo_od2=eo_od2.sort_values("ranking", ascending=True)
+print(eo_od2)
 # python melt.py
