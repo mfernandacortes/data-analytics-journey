@@ -51,3 +51,17 @@ Al analizar el revenue total, cantidad de pedidos y promedio por pedido de cada 
 **Estrategia sugerida:** incentivar con bonos escalonados por cantidad de pedidos, con el desafío de mantener el promedio actual.
 
 > Este tipo de segmentación permite diseñar estrategias comerciales distintas por perfil, en lugar de una política uniforme para todo el equipo.
+
+## Merge fino — clientes sin pedidos
+
+**Archivo:** `pandas-avanzado/practica3.py`
+**Herramienta:** Python — Pandas (merge left + isna)
+
+Usando un left join entre Customers y Orders, detecté 2 clientes dados de alta
+que nunca hicieron un pedido:
+
+- FISSA Fabrica Inter. Salchichas S.A.
+- Paris spécialités
+
+> Son clientes activos en el sistema pero sin revenue generado nunca — 
+> candidatos directos para una campaña de reactivación del equipo de marketing.
