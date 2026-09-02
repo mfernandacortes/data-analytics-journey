@@ -25,9 +25,12 @@ o=pd.read_sql("select OrderID, EmployeeID, CustomerID from Orders", engine)
 # merge:
 eo=pd.merge(e,o,on="EmployeeID")
 eo_c=pd.merge(eo,c,on="CustomerID")
-print(eo_c)
-# calcular monto:
 
 
 # pivot:
+eo_c=eo_c.groupby(["CustomerID","CompanyName"]).agg({
+    "OrderID":"nunique",
+    "EmployeeID":"nunique"
+})
+print(eo_c)
 # python practica4.py
