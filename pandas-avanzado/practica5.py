@@ -30,11 +30,33 @@ eoc_od=pd.merge(eo_c,od,on="OrderID")
 
 # calcular monto:
 eoc_od["monto"]=eoc_od["Quantity"] * eoc_od["UnitPrice"] * (1 - eoc_od["Discount"])
-
+df=eoc_od.copy()
 eoc_od=eoc_od.groupby(["CustomerID","CompanyName"]).agg({
     "OrderID":"nunique",
     "EmployeeID":"nunique",
     "monto":["sum","mean"]
 })
-print(eoc_od)
-# python practica5.py
+# print(eoc_od)
+"""
+Consigna: Encontrar cuál pedido de ALFKI no tiene ningún producto cargado en Order Details.
+
+Pasos:
+
+Filtrá los pedidos de Orders donde CustomerID == "ALFKI".
+Hacé un merge con Order Details usando how="left".
+Filtrá con .isna() sobre alguna columna de Order Details (por ejemplo Quantity) para 
+encontrar el pedido sin match.
+"""
+#     python practica5.py
+
+do=o.copy()
+do=pd.merge(do,od,on="OrderID", how="left")
+print(do[do["CustomerID"]=='ALFKI'])
+
+"""
+Cortito y en tu estilo:
+
+Investigué por qué OrderID con nunique() daba 6 en vez de 7 para ALFKI: 
+el pedido (OrderID11079) existe en Orders pero no tiene productos cargados en Order Details. 
+Con inner join se pierde; con left join + isna() lo encontré.
+"""
