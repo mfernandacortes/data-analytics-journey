@@ -42,9 +42,9 @@ Consigna: Encontrar cuál pedido de ALFKI no tiene ningún producto cargado en O
 
 Pasos:
 
-Filtrá los pedidos de Orders donde CustomerID == "ALFKI".
-Hacé un merge con Order Details usando how="left".
-Filtrá con .isna() sobre alguna columna de Order Details (por ejemplo Quantity) para 
+Filtrar los pedidos de Orders donde CustomerID == "ALFKI".
+Hacer un merge con Order Details usando how="left".
+Filtrar con .isna() sobre alguna columna de Order Details (por ejemplo Quantity) para 
 encontrar el pedido sin match.
 """
 #     python practica5.py
@@ -53,10 +53,4 @@ do=o.copy()
 do=pd.merge(do,od,on="OrderID", how="left")
 print(do[do["CustomerID"]=='ALFKI'])
 
-"""
-Cortito y en tu estilo:
 
-Investigué por qué OrderID con nunique() daba 6 en vez de 7 para ALFKI: 
-el pedido (OrderID11079) existe en Orders pero no tiene productos cargados en Order Details. 
-Con inner join se pierde; con left join + isna() lo encontré.
-"""
