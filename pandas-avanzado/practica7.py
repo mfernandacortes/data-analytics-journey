@@ -32,11 +32,22 @@ df=pd.merge(cap,o,on="OrderID")
 
 # calcular monto:
 df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
+df["anio"]=df["OrderDate"].dt.year
 print(df)
 # pivot:
+informe=df.pivot_table(
+    
+    index=["CategoryID","CategoryName"],
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
 # python practica7.py
 
 """
 HALLAZGO:
-
+Crecimiento fuerte de 1996 a 1997 en todas las categorías, con caída parcial en 1998 
+(Beverages es la única que sigue creciendo incluso en 1998).
 """
