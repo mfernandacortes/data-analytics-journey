@@ -27,12 +27,24 @@ eo=pd.merge(e,o,on="EmployeeID")
 eo_od=pd.merge(eo,od,on="OrderID")
 print(eo_od)
 # calcular monto:
-
+eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
+# agregar columna anio:
+eo_od["anio"]=eo_od["OrderDate"].dt.year
 # pivot:
-
+informe=pd.pivot_table(
+    eo_od,
+    index=["EmployeeID","LastName"],
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
 # python practica8.py
 
 """
 HALLAZGO:
-
+Crecimiento fuerte de 1996 a 1997 en casi todos, con caída parcial en 1998 — aunque hay una 
+excepción interesante: Dodsworth es el único que sigue creciendo en 1998 (de $26k a $41k), 
+mientras que Peacock, que lideraba en 1997 con $128k, cae fuerte a $54k.
 """
