@@ -27,13 +27,21 @@ od=pd.read_sql("select OrderID, ProductID, Quantity, UnitPrice, Discount from [O
 cap=pd.merge(ca,p,on="CategoryID")
 cap_od=pd.merge(cap,od,on="ProductID")
 df=pd.merge(cap_od,o,on="OrderID")
-print(df)
+
 # calcular monto:
-
-# agregar columna anio:
-
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
+# agregar columna trimestre:
+df["trimestre"]=df["OrderDate"].dt.quarter
 # pivot:
-
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID", "CategoryName"],
+    columns="trimestre",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
 # python practica9.py
 
 """
