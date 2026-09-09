@@ -65,6 +65,7 @@ que nunca hicieron un pedido:
 
 > Son clientes activos en el sistema pero sin revenue generado nunca — 
 > candidatos directos para una campaña de reactivación del equipo de marketing.
+
 ## Categoría vs trimestre: volumen y ticket promedio (pivot_table aggfunc múltiple)
 
 Comparando suma total y promedio (ticket) por categoría y trimestre, se repite el 
