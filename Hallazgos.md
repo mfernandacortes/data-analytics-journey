@@ -65,3 +65,13 @@ que nunca hicieron un pedido:
 
 > Son clientes activos en el sistema pero sin revenue generado nunca — 
 > candidatos directos para una campaña de reactivación del equipo de marketing.
+
+## Categoría vs trimestre: volumen y ticket promedio (pivot_table aggfunc múltiple)
+
+Comparando suma total y promedio (ticket) por categoría y trimestre, se repite el 
+patrón visto antes con empleados (Peacock vs Dodsworth): Beverages es la categoría 
+con mayor facturación total en todos los trimestres, pero no necesariamente la de 
+mayor ticket promedio por pedido — categorías como Meat/Poultry muestran promedios 
+más altos por pedido individual pese a facturar menos en volumen total.
+
+Conclusión: la categoría que más vende no es necesariamente la de mayor valor por pedido.
