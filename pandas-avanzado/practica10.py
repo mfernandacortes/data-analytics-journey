@@ -26,13 +26,16 @@ eo=pd.merge(e, o, on="EmployeeID")
 eo_od=pd.merge(eo,od,on="OrderID")
 
 # calcular monto:
-print(eo_od)
-
+eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
+eo_od["anio"]=eo_od["OrderDate"].dt.year
 # pivot:
-
+informe=pd.pivot_table(
+    eo_od,
+    index=["EmployeeID","LastName"],
+    columns="anio",
+    values=["monto","OrderID"],
+    aggfunc={"monto":"sum","OrderID":"nunique"},
+    fill_value=0
+)
 # python practica10.py
-
-"""
-HALLAZGO:
-
-"""
+print(informe)
