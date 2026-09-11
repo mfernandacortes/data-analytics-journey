@@ -30,18 +30,27 @@ cap_od=pd.merge(ca_p,od,on="ProductID")
 df=pd.merge(cap_od, o,on="OrderID")
 
 # calcular monto:
-print(df)
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1- df["Discount"])
+df["trimestre"]=df["OrderDate"].dt.quarter
 
-# agrupar y agg:
-
-
-# ordenar:
-
+# pivot:
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID","CategoryName"],
+    columns="trimestre",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
 # python melt1.py
+informe = informe.reset_index()
 
-
-"""
-HALLAZGO:
-
-"""
+informe2 = pd.melt(
+    informe,
+    id_vars=["CategoryID", "CategoryName"],
+    value_vars=[1, 2, 3, 4],
+    var_name="trimestre",
+    value_name="monto"
+)
+print(informe2)
