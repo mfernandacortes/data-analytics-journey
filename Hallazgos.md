@@ -75,3 +75,10 @@ mayor ticket promedio por pedido — categorías como Meat/Poultry muestran prom
 más altos por pedido individual pese a facturar menos en volumen total.
 
 Conclusión: la categoría que más vende no es necesariamente la de mayor valor por pedido.
+## Merge left + indicator — productos sin ventas (Northwind)
+**Fecha:** 12/9/2026 
+**Archivo:** pandas-avanzado/merge_fino.py
+
+Se encontró el producto Yerba Mate Tradicional que no está asociado a ningún pedido
+(ID 1078), es decir: nunca se vendió, capital parado. Propuesta urgente: una promo
+muy atractiva para poder vender, revisar precio, preguntar a los vendedores.
