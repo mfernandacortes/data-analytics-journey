@@ -82,3 +82,13 @@ Conclusión: la categoría que más vende no es necesariamente la de mayor valor
 Se encontró el producto Yerba Mate Tradicional que no está asociado a ningún pedido
 (ID 1078), es decir: nunca se vendió, capital parado. Propuesta urgente: una promo
 muy atractiva para poder vender, revisar precio, preguntar a los vendedores.
+
+## Merge left + indicator — clientes sin pedidos (Northwind)
+**Fecha:** 13/9/2026
+**Archivo:** merge_clientes.py
+
+Se detectaron 2 clientes registrados sin ningún pedido asociado: FISSA Fábrica
+Inter. Salchichas S.A. y Paris Spécialités. Posibles causas: falta de seguimiento
+comercial o ausencia de vendedor asignado. Propuesta: identificar si tienen
+vendedor a cargo, indagar el motivo de la inactividad y evaluar un descuento de
+reactivación como incentivo.
