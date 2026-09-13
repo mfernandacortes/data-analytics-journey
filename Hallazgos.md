@@ -85,7 +85,7 @@ muy atractiva para poder vender, revisar precio, preguntar a los vendedores.
 
 ## Merge left + indicator — clientes sin pedidos (Northwind)
 **Fecha:** 13/9/2026
-**Archivo:** merge_clientes.py
+**Archivo:** pandas-avanzado/merge_fino2.py
 
 Se detectaron 2 clientes registrados sin ningún pedido asociado: FISSA Fábrica
 Inter. Salchichas S.A. y Paris Spécialités. Posibles causas: falta de seguimiento
