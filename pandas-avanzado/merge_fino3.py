@@ -23,11 +23,17 @@ o=pd.read_sql("select OrderID, EmployeeID from Orders", engine)
 
 # merge:
 eo=pd.merge(e,o,on="EmployeeID", how="left", indicator=True)
-#ahora tengo que filtrar los clientes que nunca compraron por el valor left_only:
-print(eo)
+
+# filtro para encontrar los empleados sin pedido:
+emp_sin_pedidos = eo[eo["_merge"] == "left_only"]
+print(emp_sin_pedidos)
+
 # python merge_fino3.py
 
 """
 HALLAZGO:
 
+Se encontró sólo un registro (Nro 11: Prueba) para probar consultas que hice, 
+que no existe ningún empleado sin pedidos y la consulta funciona bien ya que 
+devuelve solo el registro de prueba.
 """
