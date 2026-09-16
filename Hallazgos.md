@@ -21,7 +21,7 @@ Un dashboard que muestre solo el total de pedidos nunca detectaría este patrón
 
 ## Riesgo de concentración de revenue — USA y Alemania
 
-**Archivo:** `semana-04/04_pandas_agg_merge.py`  
+**Archivo:** semana-04/04_pandas_agg_merge.py
 **Herramienta:** Python — Pandas (groupby + agg)
 
 Calculando el revenue total por país uniendo Customers, Orders y Order Details,
@@ -37,7 +37,7 @@ encontré que USA y Alemania concentran una porción desproporcionada del total:
 
 ## Análisis de performance de empleados por revenue
 
-**Archivo:** `semana-04/05_pandas_empleados_revenue.py`  
+**Archivo:** semana-04/05_pandas_empleados_revenue.py 
 **Herramienta:** Python — Pandas (groupby + agg)
 
 Al analizar el revenue total, cantidad de pedidos y promedio por pedido de cada empleado se identificaron dos perfiles distintos:
@@ -54,7 +54,7 @@ Al analizar el revenue total, cantidad de pedidos y promedio por pedido de cada 
 
 ## Merge fino — clientes sin pedidos
 
-**Archivo:** `pandas-avanzado/practica3.py`
+**Archivo:** pandas-avanzado/practica3.py
 **Herramienta:** Python — Pandas (merge left + isna)
 
 Usando un left join entre Customers y Orders, detecté 2 clientes dados de alta
@@ -92,3 +92,24 @@ Inter. Salchichas S.A. y Paris Spécialités. Posibles causas: falta de seguimie
 comercial o ausencia de vendedor asignado. Propuesta: identificar si tienen
 vendedor a cargo, indagar el motivo de la inactividad y evaluar un descuento de
 reactivación como incentivo.
+
+## Merge left + indicator — empleados sin pedidos (Northwind)
+**Fecha:** 14/9/2026
+**Archivo:** pandas-avanzado/merge_fino3.py
+
+Se encontró un único registro sin match: EmployeeID 11 ("Prueba"), que corresponde
+a un registro de testing dentro del dataset y no a un empleado real. Esto confirma
+que no existe ningún empleado real sin pedidos asignados, y que la consulta
+funciona correctamente.
+
+## Merge left + indicator=True — Suppliers vs Products
+**Fecha:** 16/9/2026
+**Archivo:** pandas-avanzado/merge_fino5.py
+
+**Pregunta:** ¿Hay proveedores cargados en el sistema que no tengan ningún producto asociado?
+
+**Método:** Merge left entre Suppliers y Products con indicator=True, filtrando por _merge == 'left_only'.
+
+**Resultado:** DataFrame vacío — los 29 suppliers del dataset tienen al menos un producto asociado. No hay proveedores "huérfanos" para depurar.
+
+**Conclusión:** A diferencia del caso Products vs Order Details (donde sí apareció un producto sin ventas), acá no hay inconsistencias de este tipo entre Suppliers y Products.

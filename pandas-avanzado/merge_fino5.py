@@ -24,11 +24,14 @@ p=pd.read_sql("select ProductID, ProductName, SupplierID from Products", engine)
 
 # merge:
 su_p=pd.merge(su,p,on="SupplierID", how="left", indicator=True)
-print(su_p)
+
 # python merge_fino5.py
 
-
+# filtrar para ver cuales son los proveedores que no están asociados a ningún producto:
+proveed=su_p[su_p["_merge"]=="left_only"]
+print(proveed)
 """
 HALLAZGO:
-
+DataFrame vacío — los 29 suppliers del dataset tienen al menos un producto 
+asociado. No hay proveedores "huérfanos" para depurar.
 """
