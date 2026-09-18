@@ -27,8 +27,32 @@ od=pd.read_sql("select OrderID from [Order Details]", engine)
 co=pd.merge(c,o,on="CustomerID")
 co_od=pd.merge(co,od,on="OrderID")
 
-print(co_od)
 
+
+df1=co_od.copy()
+"""
+informe=pd.pivot_table(
+    co_od,
+    index="ShipCountry",
+    values=["monto"],
+    aggfunc=["sum","mean"],
+    fill_value=0
+)
+"""
+
+
+informe1=pd.pivot_table(
+    df1,
+    index=["CustomerID","CompanyName"],
+    values=["OrderID"],
+    aggfunc=["nunique","count"],
+    fill_value=0
+)
+
+print(informe1)
+
+## count vs nunique — Pedidos por cliente
+# se utilizan las dos funciones para mostrar como trabajan
 
 
 # python practica11.py
