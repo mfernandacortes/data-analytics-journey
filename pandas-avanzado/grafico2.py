@@ -39,9 +39,3 @@ agrup = agrup.reset_index()
 plt.bar(agrup["CategoryName"], agrup["monto"])
 plt.show()
 
-
-
-"""
-HALLAZGO:
-
-"""
