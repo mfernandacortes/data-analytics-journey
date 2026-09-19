@@ -1,5 +1,6 @@
 import pandas as pd
 from sqlalchemy import create_engine 
+import matplotlib.pyplot as plt
 
 # conexión, descomentar según de donde trabaje, por defecto es la de escritorio
 engine = create_engine( 
@@ -29,8 +30,15 @@ df=pd.merge(ca_p, od, on="ProductID")
 
 # calcular monto:
 df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
-print(df)
-# python grafico2.py
+agrup=df.copy()
+
+# agrupar por categoria:
+agrup=agrup.groupby(["CategoryID","CategoryName"])["monto"].sum().sort_values(ascending=False)
+
+agrup = agrup.reset_index()
+plt.bar(agrup["CategoryName"], agrup["monto"])
+plt.show()
+
 
 
 """
