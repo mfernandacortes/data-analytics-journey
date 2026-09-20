@@ -53,7 +53,9 @@ def clasificar(row):
 
 df["tipo_compra"]=df.apply(clasificar, axis=1)
 # mostrar:
+
 print(df)
+
 # para ver cuantos hay de cada volúmen:
 print(df["tipo_compra"].value_counts())
 
