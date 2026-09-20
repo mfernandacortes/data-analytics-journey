@@ -34,8 +34,30 @@ co_od=pd.merge(co,od,on="OrderID")
 # calcular monto:
 co_od["monto"]=co_od["Quantity"] * co_od["UnitPrice"] * (1 - co_od["Discount"])
 
+# agrupar por clientes:
+df=co_od.copy()
+df=df.groupby(["CustomerID","CompanyName"]).agg({
+    "monto":"sum",
+    "OrderID":"nunique"
+})
+q1 = df['monto'].quantile(0.33) # corte bajo
+q2 = df['monto'].quantile(0.66) # corte alto
+# funcion para clasificar:
+def clasificar(row):
+    if (row["monto"]) > q2:
+        return "Volumen grande"
+    elif (row["monto"]) > q1:
+        return "Volumen medio"
+    else:
+        return "Volumen chico"
+
+df["tipo_compra"]=df.apply(clasificar, axis=1)
 # mostrar:
-print(co_od)
+print(df)
+# para ver cuantos hay de cada volúmen:
+print(df["tipo_compra"].value_counts())
+
+
 
 """
 python practica12.py
