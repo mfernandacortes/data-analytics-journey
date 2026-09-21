@@ -113,3 +113,15 @@ funciona correctamente.
 **Resultado:** DataFrame vacío — los 29 suppliers del dataset tienen al menos un producto asociado. No hay proveedores "huérfanos" para depurar.
 
 **Conclusión:** A diferencia del caso Products vs Order Details (donde sí apareció un producto sin ventas), acá no hay inconsistencias de este tipo entre Suppliers y Products.
+
+## Ventas por categoria y anio — Grafico de barras agrupadas
+**Fecha:** 21/9/2026
+**Archivo:** pandas-avanzado/grafico3.py
+
+**Pregunta:** ¿Como evolucionaron las ventas de cada categoria de producto a lo largo de los años en Northwind?
+
+**Metodo:** pivot_table con index="Anio", columns="CategoryName", values="monto", aggfunc="sum". Luego reset_index() + set_index("CategoryName") para graficar con df.plot(kind="bar").
+
+**Resultado:** 1997 fue el año pico de ventas en practicamente todas las categorias, con una caida notoria en 1998 (posiblemente por ser un año incompleto en el dataset). Beverages y Dairy Products son las categorias con mayor facturacion en los tres años.
+
+**Conclusion:** El grafico de barras agrupadas es ideal para comparar una metrica a traves de multiples categorias y periodos simultaneamente, mucho mas claro que una tabla numerica para detectar patrones temporales.

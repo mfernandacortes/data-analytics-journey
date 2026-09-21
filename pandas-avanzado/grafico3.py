@@ -1,5 +1,6 @@
 import pandas as pd
-from sqlalchemy import create_engine 
+from sqlalchemy import create_engine
+import matplotlib.pyplot as plt
 
 # conexión, descomentar según de donde trabaje, por defecto es la de escritorio
 engine = create_engine( 
@@ -31,12 +32,26 @@ cap_od=pd.merge(ca_p,od,on="ProductID")
 df=pd.merge(cap_od,o,on="OrderID")
 
 # calcular monto:
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
+# sacar el anio con dt:
+df["anio"]=df["OrderDate"].dt.year
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID", "CategoryName"],
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+
+print(informe)
+
+# gráfico:
+informe = informe.reset_index()
+informe.set_index("CategoryName").plot(kind="bar")
+plt.show()
 # python grafico3.py
 
-"""
-HALLAZGO:
-
-"""
