@@ -32,7 +32,33 @@ co_od["monto"]=co_od["Quantity"] * co_od["UnitPrice"] * (1 - co_od["Discount"])
 co_od["trimestre"]=co_od["OrderDate"].dt.quarter
 # pivot:
 print(co_od)
+informe=pd.pivot_table(
+    co_od,
+    index="Country",
+    columns="trimestre",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
+# para el gráfico voy a invertir el pivot:
+informe2=pd.pivot_table(
+    co_od,
+    index="trimestre",
+    columns="Country",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+
+# gráfico:
+import matplotlib.pyplot as plt
+
+informe2.plot(kind="bar")
+# correr la referencia de paises:
+plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
+plt.show()
 """
 python grafico4.py
 """
