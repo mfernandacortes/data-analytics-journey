@@ -54,11 +54,36 @@ informe2=pd.pivot_table(
 
 # gráfico:
 import matplotlib.pyplot as plt
+informe["total"] = informe.sum(axis=1)
+top5 = informe.sort_values("total", ascending=False).head(5)
+top5 = top5.drop(columns="total")
 
-informe2.plot(kind="bar")
-# correr la referencia de paises:
+top5.plot(kind="bar")
 plt.legend(bbox_to_anchor=(1.05, 1), loc='upper left')
 plt.show()
+
+
+
 """
-python grafico4.py
+HALLAZGO:
+## Top 5 paises por venta y trimestre — Grafico de barras filtrado
+
+**Pregunta:** ¿Cuales son los 5 paises con mayor facturacion en Northwind, y como 
+se distribuye esa venta a lo largo de los 4 trimestres?
+
+**Metodo:** pivot_table con index="Country", columns="trimestre", values="monto", 
+aggfunc="sum". Se calculo el total por pais con sum(axis=1), se ordeno con 
+sort_values y se tomaron los 5 primeros con head(5). Se elimino la columna auxiliar 
+"total" antes de graficar con plot(kind="bar"), y se movio la leyenda afuera del 
+grafico con bbox_to_anchor.
+
+**Resultado:** USA es el pais con mayor facturacion total, con un trimestre 1 
+particularmente fuerte (mas de $80.000). Germany es el segundo, con ventas mas 
+parejas entre trimestres. Austria, Brazil y France completan el top 5, bastante 
+mas atras.
+
+**Conclusion:** Con 21 paises el grafico de barras agrupadas se vuelve ilegible 
+- filtrar al top N antes de graficar es clave para que el grafico comunique algo 
+util. La eleccion del grafico correcto depende tanto de los datos como de cuantas 
+categorias se van a comparar.
 """
