@@ -33,10 +33,24 @@ eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
 # crear columna mes:
 eo_od["anio"]=eo_od["OrderDate"].dt.year
 eo_od["mes"]=eo_od["OrderDate"].dt.month
-print(eo_od)
+
+df=eo_od.copy()
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["anio","mes"],
+    columns=["EmployeeID","LastName"],
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
 
-
+# ahora me quedo con los 3 empleados que más facturaron:
+totales = informe.sum(axis=0)
+top3 = totales.sort_values(ascending=False).head(3).index
+informe = informe[top3]
+print(informe)
 """
 python grafico5.py
 
