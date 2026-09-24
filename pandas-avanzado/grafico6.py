@@ -38,6 +38,14 @@ informe=pd.pivot_table(
     fill_value=0
 )
 print(informe)
+
+# gráfico:
+import matplotlib.pyplot as plt
+
+
+informe.plot()
+plt.title('Ventas mensuales')
+plt.show()
 """
 python grafico6.py
 
