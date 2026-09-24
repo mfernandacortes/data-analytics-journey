@@ -26,10 +26,18 @@ o_od=pd.merge(o,od,on="OrderID")
 
 # calcular monto:
 o_od["monto"]=o_od["Quantity"] * o_od["UnitPrice"] * (1 - o_od["Discount"])
-print(o_od)
+# crear columnas nuevas año y mes:
+o_od["anio"]=o_od["OrderDate"].dt.year
+o_od["mes"]=o_od["OrderDate"].dt.month
 # pivot:
-
-
+informe=pd.pivot_table(
+    o_od,
+    index=["anio","mes"],
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
 """
 python grafico6.py
 
