@@ -23,15 +23,23 @@ od=pd.read_sql("select OrderID, ProductID, Quantity from [Order Details]", engin
 
 # merge:
 o_od=pd.merge(o,od,on="OrderID")
-
+# total cantidad:
+o_od["cantidad_total"]=o_od["Quantity"].sum()
 # columna año y mes:
 o_od["anio"]=o_od["OrderDate"].dt.year
 o_od["mes"]=o_od["OrderDate"].dt.month
 
 
 # pivot:
-print(o_od)
+informe=pd.pivot_table(
+    o_od,
+    index=["anio","mes"],
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 """
 python grafico7.py
 
