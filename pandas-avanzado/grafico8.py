@@ -48,7 +48,15 @@ import matplotlib.pyplot as plt
 informe.plot()
 plt.title('Ventas trimestrales por año por categoría')
 plt.show()
+
 """
-python grafico8.py
+HALLAZGO:
+Hallazgo: En Northwind, la mayoría de las categorías se mantienen relativamente 
+estables trimestre a trimestre, pero Beverages y Seafood muestran un pico fuerte 
+en el primer trimestre de 1998 (Beverages ronda 2.350, Seafood cerca 
+de 1.950), muy por encima de su propio promedio histórico. El resto de las 
+categorías (Condiments, Grains/Cereals, Produce) no acompaña ese pico, lo que 
+sugiere que no es un fenómeno de temporada generalizado sino algo puntual de esas 
+dos categorías en ese trimestre.
 
 """
