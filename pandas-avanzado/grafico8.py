@@ -26,12 +26,28 @@ ca_p=pd.merge(ca, p, on="CategoryID")
 cap_od=pd.merge(ca_p, od, on="ProductID")
 df=pd.merge(cap_od, o, on="OrderID")
 
-# calcular monto:
+# nueva columna de mes y anio:
+df["anio"]=df["OrderDate"].dt.year
+df["trimestre"]=df["OrderDate"].dt.quarter
+
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["anio","trimestre"],
+    columns="CategoryName",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
+print(informe)
+# gráfico:
+import matplotlib.pyplot as plt
+informe.plot()
+plt.title('Ventas trimestrales por año por categoría')
+plt.show()
 """
 python grafico8.py
 
