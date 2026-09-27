@@ -23,12 +23,15 @@ od=pd.read_sql("select ProductID, Quantity from [Order Details]", engine)
 
 p_od=pd.merge(p,od,on="ProductID")
 
-print(p_od)
+# antes de agrupar copio el df:
+df=p_od.copy()
+df=df.groupby(["ProductID", "ProductName"]).sum()
 
+# ordenar de mayor a menor y mostrar los primeros 10:
 
-# pivot:
+df=df.sort_values(by="Quantity", ascending=False).head(10)
 
-
+print(df)
 """
 python grafico9.py
 
