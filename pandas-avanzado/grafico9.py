@@ -29,9 +29,16 @@ df=df.groupby(["ProductID", "ProductName"]).sum()
 
 # ordenar de mayor a menor y mostrar los primeros 10:
 
-df=df.sort_values(by="Quantity", ascending=False).head(10)
+df=df.sort_values(by="Quantity", ascending=False).head(10).reset_index()
 
-print(df)
+
+# gráfico:
+import matplotlib.pyplot as plt
+df.plot(kind="barh", x="ProductName", y="Quantity")
+plt.title("Top 10 Productos Más vendidos")
+plt.show()
+
+
 """
 python grafico9.py
 
