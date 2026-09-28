@@ -26,16 +26,8 @@ df=p.sort_values(by="UnitPrice", ascending=False)
 df=df.head(10)
 print(df)
 # gráfico:
-
-
-
-
-"""
-python top10precios.py
-HALLAZGO:
-la primera barra dice que más de 50 productos cuestan menos de unos $27. 
-La segunda, unos 19 entre $27 y $53. Después casi nada, y hay uno solo por 
-los $250. O sea: la mayoría son baratos y hay un par de caros que estiran 
-el gráfico hacia la derecha.
-
-"""
+# gráfico:
+import matplotlib.pyplot as plt
+df.plot(kind="barh", x="ProductName", y="UnitPrice")
+plt.title("Top 10 Productos Más caros")
+plt.show()
