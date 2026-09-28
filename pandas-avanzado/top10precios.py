@@ -24,8 +24,7 @@ p=pd.read_sql("select ProductID, ProductName, UnitPrice from Products", engine)
 df=p.sort_values(by="UnitPrice", ascending=False)
 # top 10:
 df=df.head(10)
-print(df)
-# gráfico:
+
 # gráfico:
 import matplotlib.pyplot as plt
 df.plot(kind="barh", x="ProductName", y="UnitPrice")
