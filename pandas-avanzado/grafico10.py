@@ -23,12 +23,14 @@ od=pd.read_sql("select OrderID, Quantity, UnitPrice, Discount from [Order Detail
 
 # merge:
 o_od=pd.merge(o,od,on="OrderID")
-print(o_od)
 
 # calcular monto:
+o_od["monto"]=o_od["Quantity"] * o_od["UnitPrice"] * (1 - o_od["Discount"])
 
-
-# pivot:
+# año y mes:
+o_od["anio"]=o_od["OrderDate"].dt.year
+o_od["mes"]=o_od["OrderDate"].dt.month
+print(o_od)
 
 
 """
