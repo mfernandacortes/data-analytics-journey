@@ -30,7 +30,22 @@ o_od["monto"]=o_od["Quantity"] * o_od["UnitPrice"] * (1 - o_od["Discount"])
 # año y mes:
 o_od["anio"]=o_od["OrderDate"].dt.year
 o_od["mes"]=o_od["OrderDate"].dt.month
-print(o_od)
+
+monto_mensual = o_od.groupby(["anio","mes"])["monto"].sum()
+quantity_mensual = o_od.groupby(["anio","mes"])["Quantity"].sum()
+
+# gráfico:
+import matplotlib.pyplot as plt
+
+quantity_mensual = o_od.groupby(["anio", "mes"])["Quantity"].sum()
+
+fig, ax = plt.subplots(1, 2, figsize=(12, 5))
+
+monto_mensual.plot(ax=ax[0], title="Monto total mensual")
+quantity_mensual.plot(ax=ax[1], title="Cantidad total mensual")
+
+plt.tight_layout()
+plt.show()
 
 
 """
