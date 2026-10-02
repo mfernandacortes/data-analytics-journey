@@ -32,3 +32,13 @@ df["Quantity"].plot(kind="hist", ax=ax[1])
 ax[0].set_title("Precios")
 ax[1].set_title("Cantidades")
 plt.show()
+
+"""
+HALLAZGO:
+Al cruzar UnitPrice con el detalle de pedidos (Order Details), la distribución 
+de precios deja de ser la de 78 productos únicos y pasa a reflejar cuántas veces 
+se vendió cada rango de precio: la concentración en precios bajos se vuelve 
+todavía más marcada (más de 1400 líneas de pedido corresponden a productos de 
+precio bajo), lo que sugiere que los productos baratos no solo son mayoría en
+el catálogo, sino que además son los que más rotación tienen en ventas.
+"""
