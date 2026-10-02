@@ -25,8 +25,10 @@ od=pd.read_sql("select OrderID, ProductID, Quantity from [Order Details]", engin
 df=pd.merge(p,od,on="ProductID")
 print(df)
 # gráfico:
-
-"""
-python histograma4.py
-
-"""
+import matplotlib.pyplot as plt
+fig, ax = plt.subplots(1, 2)
+df["UnitPrice"].plot(kind="hist", ax=ax[0])
+df["Quantity"].plot(kind="hist", ax=ax[1])
+ax[0].set_title("Precios")
+ax[1].set_title("Cantidades")
+plt.show()
