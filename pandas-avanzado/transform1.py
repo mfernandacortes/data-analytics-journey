@@ -25,13 +25,16 @@ p=pd.read_sql("select ProductID, CategoryID, ProductName, UnitPrice from Product
 # merge:
 ca_p=pd.merge(ca,p,on="CategoryID")
 
+# agregar columna promedio:
+ca_p["promedio"]=ca_p.groupby("CategoryName")["UnitPrice"].transform("mean")
+
+# agrego la columna con la diferencia entre precio y promedio:
+ca_p["diferencia"]=ca_p["UnitPrice"] - ca_p["promedio"]
+
+
 print(ca_p)
-
-
-
-
 """
-
 python transform1.py
+
 
 """
