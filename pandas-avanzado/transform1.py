@@ -32,9 +32,15 @@ ca_p["promedio"]=ca_p.groupby("CategoryName")["UnitPrice"].transform("mean")
 ca_p["diferencia"]=ca_p["UnitPrice"] - ca_p["promedio"]
 
 
+
+"""
+
+Usando la misma tabla de productos+categorías, agregar una columna que muestre 
+el puesto (ranking) de cada producto según su UnitPrice, dentro de su propia 
+categoría — o sea, el más caro de Beverages es el puesto 1 de Beverages, no el 
+puesto 1 de todo el dataset.
+
+"""
+ca_p["ranking"]=ca_p.groupby("CategoryName")["UnitPrice"].rank(ascending=False)
+
 print(ca_p)
-"""
-python transform1.py
-
-
-"""
