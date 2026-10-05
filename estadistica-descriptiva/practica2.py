@@ -27,7 +27,13 @@ df=p.copy()
 baratos=df[df["UnitPrice"] <= 13.44]
 
 print(baratos)
+
 """
-python practica2.py
+HALLAZGO:
+Dos productos — Guaraná Fantástica ($4,50) y Rhönbräu Klosterbier ($7,75) — 
+caen en el cuartil más barato (Q1, ≤$13,44) y a la vez están entre los 10 
+productos más vendidos por cantidad. Sugiere que el precio bajo puede ser un 
+factor de alta rotación para estos casos puntuales, aunque no es un patrón 
+general (la mayoría del Q1 no aparece en el top de ventas).
 
 """
