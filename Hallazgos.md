@@ -156,3 +156,10 @@ real en vez de ruido.
 En Northwind los precios están muy concentrados en lo económico. Más de 50 de los 78 productos cuestan menos de unos $28, y hay un caso extremo: **Côte de Blaye**, a $263,50, más del doble que el segundo más caro (Thüringer Rostbratwurst, $123,79).
 
 Cruzando con el top 10 de cantidades, Côte de Blaye no figura entre los más vendidos por unidades. En cambio **Raclette Courdavault** ($55) y **Tarte au sucre** ($49,30) aparecen en las dos listas: están entre los más caros y también entre los más vendidos. Con estos gráficos no se puede saber cuál pesa más en la facturación, porque eso pide combinar precio y cantidad (`Quantity * UnitPrice`).
+
+## Hallazgo — Sesgo en tamaño de pedidos (Northwind)
+
+**Fecha:** 06/10/2026
+**Archivo:** estadistica-descriptiva/practica3.py
+
+Quantity (Order Details): media 23.81 vs mediana 20 — la media queda por encima porque hay pedidos grandes (máx. 130) mezclados con la mayoría de pedidos chicos (Q1=10, Q3=30). Mismo patrón de sesgo que se vio en UnitPrice con Côte de Blaye.
