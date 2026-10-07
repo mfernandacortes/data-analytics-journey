@@ -163,3 +163,10 @@ Cruzando con el top 10 de cantidades, Côte de Blaye no figura entre los más ve
 **Archivo:** estadistica-descriptiva/practica3.py
 
 Quantity (Order Details): media 23.81 vs mediana 20 — la media queda por encima porque hay pedidos grandes (máx. 130) mezclados con la mayoría de pedidos chicos (Q1=10, Q3=30). Mismo patrón de sesgo que se vio en UnitPrice con Côte de Blaye.
+
+## Hallazgo — Sesgo en tamaño de pedidos (Northwind)
+
+**Fecha:** 07/10/2026
+**Archivo:** estadistica-descriptiva/distribucion.py
+
+UnitPrice (Products) — sesgo: skew() = 4.97, confirma numéricamente el sesgo a la derecha ya visto en el histograma y en la brecha media-mediana (28.70 vs 19.48). Sesgo fuerte, no sutil.

@@ -23,7 +23,3 @@ p=pd.read_sql("select UnitPrice from Products", engine)
 # distribución:
 print(p["UnitPrice"].skew())
 
-"""
-python distribucion.py
-
-"""
