@@ -170,3 +170,8 @@ Quantity (Order Details): media 23.81 vs mediana 20 — la media queda por encim
 **Archivo:** estadistica-descriptiva/distribucion.py
 
 UnitPrice (Products) — sesgo: skew() = 4.97, confirma numéricamente el sesgo a la derecha ya visto en el histograma y en la brecha media-mediana (28.70 vs 19.48). Sesgo fuerte, no sutil.
+
+**Fecha:** 08/10/2026
+**Archivo:** estadistica-descriptiva/distribucion3.py
+
+Sesgo de precios por categoría (Northwind): skew() de UnitPrice por categoría, de mayor a menor: Beverages (3.49) y Seafood (2.09) con los precios más estirados hacia arriba; Produce (-0.07) y Dairy Products (-0.15) casi simétricas. El sesgo global de 4.97 no se reparte parejo entre categorías: se concentra en unas pocas.
