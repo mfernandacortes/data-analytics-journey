@@ -175,3 +175,7 @@ UnitPrice (Products) — sesgo: skew() = 4.97, confirma numéricamente el sesgo 
 **Archivo:** estadistica-descriptiva/distribucion3.py
 
 Sesgo de precios por categoría (Northwind): skew() de UnitPrice por categoría, de mayor a menor: Beverages (3.49) y Seafood (2.09) con los precios más estirados hacia arriba; Produce (-0.07) y Dairy Products (-0.15) casi simétricas. El sesgo global de 4.97 no se reparte parejo entre categorías: se concentra en unas pocas.
+
+**Fecha:** 09/10/2026
+**Archivo:** estadistica-descriptiva/precios.py
+Sesgo de Beverages (Northwind): el skew() de 3.49 en Beverages lo explica un solo producto: Côte de Blaye ($263.50), casi 6 veces más caro que el segundo (Ipoh Coffee, $46.00). El resto de la categoría se concentra entre $4.50 y $19. Un único outlier alcanza para sesgar toda la categoría.
