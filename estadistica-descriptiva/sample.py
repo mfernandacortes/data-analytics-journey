@@ -22,11 +22,11 @@ distinto?
 od=pd.read_sql("select Quantity from [Order Details]", engine)
 
 # muestras al azar:
-muestra1 = od["Quantity"].sample(100)
+muestra1 = od["Quantity"].sample(1000)
 # media:
 media=od["Quantity"].mean()
 print(muestra1.mean())
-muestra2= od["Quantity"].sample(100)
+muestra2= od["Quantity"].sample(1000)
 print(muestra2.mean())
-muestra3=od["Quantity"].sample(100)
+muestra3=od["Quantity"].sample(1000)
 print(muestra3.mean())
