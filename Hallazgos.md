@@ -179,3 +179,10 @@ Sesgo de precios por categoría (Northwind): skew() de UnitPrice por categoría,
 **Fecha:** 09/10/2026
 **Archivo:** estadistica-descriptiva/precios.py
 Sesgo de Beverages (Northwind): el skew() de 3.49 en Beverages lo explica un solo producto: Côte de Blaye ($263.50), casi 6 veces más caro que el segundo (Ipoh Coffee, $46.00). El resto de la categoría se concentra entre $4.50 y $19. Un único outlier alcanza para sesgar toda la categoría.
+
+## Hallazgo — Muestras al azar de Quantity (Northwind)
+
+**Fecha:** 10/10/2026
+**Archivo:** estadistica-descriptiva/sample.py
+
+Con 3 muestras de 100 filas (más una de 100 previa) los promedios dieron entre 24.3 y 25.61, y la media real (23.81) quedó afuera. Con 3 muestras de 1000 filas dieron entre 23.445 y 24.024, y la media real quedó adentro. A mayor tamaño de muestra, los promedios se parecen más entre sí y se acercan al de la población (ley de los grandes números).
