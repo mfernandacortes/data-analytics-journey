@@ -186,3 +186,11 @@ Sesgo de Beverages (Northwind): el skew() de 3.49 en Beverages lo explica un sol
 **Archivo:** estadistica-descriptiva/sample.py
 
 Con 3 muestras de 100 filas (más una de 100 previa) los promedios dieron entre 24.3 y 25.61, y la media real (23.81) quedó afuera. Con 3 muestras de 1000 filas dieron entre 23.445 y 24.024, y la media real quedó adentro. A mayor tamaño de muestra, los promedios se parecen más entre sí y se acercan al de la población (ley de los grandes números).
+
+
+## Hallazgo — Tamaño de muestra y dispersión (Quantity, Northwind)
+
+**Fecha:** 11/10/2026
+**Archivo:** estadistica-descriptiva/sample2.py
+
+Con muestras de 30 filas los promedios se dispersan mucho (de 18.07 a 30.83 en dos corridas), con 100 filas van de 24.3 a 25.61 y con 1000 filas de 23.445 a 24.024, cerca de la media real (23.81). A menor tamaño de muestra, mayor dispersión de los promedios y un intervalo de confianza más ancho.
