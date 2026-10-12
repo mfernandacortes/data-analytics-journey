@@ -160,30 +160,30 @@ Cruzando con el top 10 de cantidades, Côte de Blaye no figura entre los más ve
 ## Hallazgo — Sesgo en tamaño de pedidos (Northwind)
 
 **Fecha:** 06/10/2026
-**Archivo:** estadistica-descriptiva/practica3.py
+**Archivo:** estadistica/practica3.py
 
 Quantity (Order Details): media 23.81 vs mediana 20 — la media queda por encima porque hay pedidos grandes (máx. 130) mezclados con la mayoría de pedidos chicos (Q1=10, Q3=30). Mismo patrón de sesgo que se vio en UnitPrice con Côte de Blaye.
 
 ## Hallazgo — Sesgo en tamaño de pedidos (Northwind)
 
 **Fecha:** 07/10/2026
-**Archivo:** estadistica-descriptiva/distribucion.py
+**Archivo:** estadistica/distribucion.py
 
 UnitPrice (Products) — sesgo: skew() = 4.97, confirma numéricamente el sesgo a la derecha ya visto en el histograma y en la brecha media-mediana (28.70 vs 19.48). Sesgo fuerte, no sutil.
 
 **Fecha:** 08/10/2026
-**Archivo:** estadistica-descriptiva/distribucion3.py
+**Archivo:** estadistica/distribucion3.py
 
 Sesgo de precios por categoría (Northwind): skew() de UnitPrice por categoría, de mayor a menor: Beverages (3.49) y Seafood (2.09) con los precios más estirados hacia arriba; Produce (-0.07) y Dairy Products (-0.15) casi simétricas. El sesgo global de 4.97 no se reparte parejo entre categorías: se concentra en unas pocas.
 
 **Fecha:** 09/10/2026
-**Archivo:** estadistica-descriptiva/precios.py
+**Archivo:** estadistica/precios.py
 Sesgo de Beverages (Northwind): el skew() de 3.49 en Beverages lo explica un solo producto: Côte de Blaye ($263.50), casi 6 veces más caro que el segundo (Ipoh Coffee, $46.00). El resto de la categoría se concentra entre $4.50 y $19. Un único outlier alcanza para sesgar toda la categoría.
 
 ## Hallazgo — Muestras al azar de Quantity (Northwind)
 
 **Fecha:** 10/10/2026
-**Archivo:** estadistica-descriptiva/sample.py
+**Archivo:** estadistica/sample.py
 
 Con 3 muestras de 100 filas (más una de 100 previa) los promedios dieron entre 24.3 y 25.61, y la media real (23.81) quedó afuera. Con 3 muestras de 1000 filas dieron entre 23.445 y 24.024, y la media real quedó adentro. A mayor tamaño de muestra, los promedios se parecen más entre sí y se acercan al de la población (ley de los grandes números).
 
@@ -191,6 +191,11 @@ Con 3 muestras de 100 filas (más una de 100 previa) los promedios dieron entre 
 ## Hallazgo — Tamaño de muestra y dispersión (Quantity, Northwind)
 
 **Fecha:** 11/10/2026
-**Archivo:** estadistica-descriptiva/sample2.py
+**Archivo:** estadistica/sample2.py
 
 Con muestras de 30 filas los promedios se dispersan mucho (de 18.07 a 30.83 en dos corridas), con 100 filas van de 24.3 a 25.61 y con 1000 filas de 23.445 a 24.024, cerca de la media real (23.81). A menor tamaño de muestra, mayor dispersión de los promedios y un intervalo de confianza más ancho.
+
+## Hallazgo — Intervalo de confianza de Quantity (Northwind)
+**Fecha:** 12/10/2026
+**Archivo:** estadistica/inferencial.py
+Con una sola muestra de 100 filas, el intervalo de confianza de la media (media ± 1.96 * std / raíz de n) dio de 18.2 a 25.5, y la media real (23.81) cayó adentro. Con una sola muestra se puede estimar un rango para la media de toda la población, y ese rango se angosta al agrandar la muestra.
