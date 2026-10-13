@@ -6,5 +6,5 @@ Práctica de estadística descriptiva e inferencial sobre Northwind, como parte 
 - [x] Media, mediana, moda, desvío estándar
 - [x] Cuartiles
 - [x] Distribuciones
-- [ ] Estadística inferencial
-- [ ] A/B testing
+- [x] Estadística inferencial
+- [x] A/B testing
