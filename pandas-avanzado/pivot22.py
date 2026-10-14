@@ -43,5 +43,5 @@ informe=pd.pivot_table(
 )
 
 print(informe)
-# python pivot22.py
+
 
