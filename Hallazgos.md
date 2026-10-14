@@ -204,6 +204,7 @@ Con una sola muestra de 100 filas, el intervalo de confianza de la media (media 
 ## Hallazgo — A/B testing con valor p (ejemplo de botón azul vs verde)
 **Fecha:** 13/10/2026
 **Archivo:** estadistica/testing.py
+
 Con 1.000 visitantes por grupo, 100 vs 115 compras dio un valor p de 0.31, que es compatible con el azar y no alcanza para decir que el verde es mejor. Con 100 vs 160 compras el valor p fue de 0.0000875, y una diferencia así casi nunca aparece por casualidad. Valor p chico (menos de 0.05) indica una diferencia probablemente real. Datos de ejemplo, calculado con chi2_contingency de scipy.
 
 ## Hallazgo — Ventas por empleado y año (Northwind)
