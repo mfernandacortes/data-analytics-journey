@@ -33,6 +33,15 @@ eo_od["monto"]=eo_od["Quantity"] * eo_od["UnitPrice"] * (1 - eo_od["Discount"])
 eo_od["anio"]=eo_od["OrderDate"].dt.year
 print(eo_od)
 # pivot:
+informe=pd.pivot_table(
+    eo_od,
+    index=["EmployeeID", "LastName"],
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 # python pivot22.py
 
