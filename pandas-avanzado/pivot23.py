@@ -36,6 +36,16 @@ df["anio"]=df["OrderDate"].dt.year
 # pivot:
 print(df)
 
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID", "CategoryName"],
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+
+print(informe)
 """
 python pivot23.py
 
