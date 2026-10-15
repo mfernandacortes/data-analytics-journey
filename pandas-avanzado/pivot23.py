@@ -29,10 +29,12 @@ cap_od=pd.merge(ca_p,od,on="ProductID")
 df=pd.merge(cap_od, o, on="OrderID")
 
 # calcular monto:
-print(df)
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
+# columna para el año:
+df["anio"]=df["OrderDate"].dt.year
 # pivot:
-
+print(df)
 
 """
 python pivot23.py
