@@ -211,4 +211,10 @@ Con 1.000 visitantes por grupo, 100 vs 115 compras dio un valor p de 0.31, que e
 **Fecha:** 14/10/2026
 **Archivo:** pandas-avanzado/pivot22.py
 
-En 1997 Peacock fue el empleado con más ventas ($128.810), seguido por Leverling ($108.026). Peacock también encabezó 1996 ($49.945), pero en 1998 Leverling pasó a primer lugar ($76.563). Los datos de 1998 llegan solo hasta abril, así que los montos de ese año no son comparables con los anteriores.
+En 1997 Peacock fue el empleado con más ventas ($128.810), seguido por Leverling ($108.026). Peacock también encabezó 1996 ($49.945), pero en 1998 Leverling pasó a primer lugar ($76.563). Los datos de 1998 llegan solo hasta mayo, así que los montos de ese año no son comparables con los anteriores.
+
+## Hallazgo — Ventas por categoría y año (Northwind)
+**Fecha:** 15/10/2026
+**Archivo:** pandas-avanzado/pivot23.py
+
+Beverages es la categoría que más creció: de $47.919 en 1996 a $103.924 en 1997, y llegó a $116.025 en 1998 con el año incompleto, siendo la única que sigue subiendo ese año. En 1997 la categoría líder fue Dairy Products ($115.388). Las otras 7 categorías bajan en 1998, pero los datos de ese año llegan solo hasta principios de mayo, así que no son comparables con los años completos.
