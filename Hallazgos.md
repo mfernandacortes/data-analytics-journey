@@ -218,3 +218,9 @@ En 1997 Peacock fue el empleado con más ventas ($128.810), seguido por Leverlin
 **Archivo:** pandas-avanzado/pivot23.py
 
 Beverages es la categoría que más creció: de $47.919 en 1996 a $103.924 en 1997, y llegó a $116.025 en 1998 con el año incompleto, siendo la única que sigue subiendo ese año. En 1997 la categoría líder fue Dairy Products ($115.388). Las otras 7 categorías bajan en 1998, pero los datos de ese año llegan solo hasta principios de mayo, así que no son comparables con los años completos.
+
+## Hallazgo — Ventas por empleado y categoría (Northwind, 1996-1998)
+**Fecha:** 16/10/2026
+**Archivo:** pandas-avanzado/pivot24.py
+
+Peacock lidera cuatro categorías: Beverages ($50.308), Condiments ($23.315), Meat/Poultry ($30.867) y Seafood ($27.316). Leverling lidera Confections ($33.622) y Davolio lidera Produce ($19.706). Dodsworth casi no vendió Produce ($315). Quedan por revisar Dairy Products y Grains/Cereals, que el resultado oculta.
