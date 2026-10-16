@@ -32,11 +32,19 @@ capod_o=pd.merge(cap_od, o, on="OrderID")
 df=pd.merge(capod_o, e, on="EmployeeID")
 print(df)
 # calcular monto:
-
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["EmployeeID", "LastName"],
+    columns=["CategoryID", "CategoryName"],
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
+print(informe)
 """
 python pivot24.py
 
