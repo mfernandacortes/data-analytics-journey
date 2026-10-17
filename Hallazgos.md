@@ -224,3 +224,9 @@ Beverages es la categoría que más creció: de $47.919 en 1996 a $103.924 en 19
 **Archivo:** pandas-avanzado/pivot24.py
 
 Peacock lidera cuatro categorías: Beverages ($50.308), Condiments ($23.315), Meat/Poultry ($30.867) y Seafood ($27.316). Leverling lidera Confections ($33.622) y Davolio lidera Produce ($19.706). Dodsworth casi no vendió Produce ($315). Quedan por revisar Dairy Products y Grains/Cereals, que el resultado oculta.
+
+## Hallazgo — Unidades vendidas por país y año (Northwind)
+**Fecha:** 17/10/2026
+**Archivo:** pandas-avanzado/pivot25.py
+
+Alemania y USA son los dos mercados más grandes, muy por encima del resto. Alemania lidera 1996 (1.910 unidades) y 1997 (4.756), y USA lidera 1998 (3.152), con el año incompleto (llega hasta principios de mayo). Sumando los tres años, USA queda apenas arriba: 9.330 unidades contra 9.213 de Alemania. Argentina no registra ventas en 1996 y recién aparece en 1997.
