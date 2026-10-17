@@ -27,10 +27,18 @@ od=pd.read_sql("select OrderID, Quantity from [Order Details]", engine)
 co=pd.merge(c,o,on="CustomerID")
 co_od=pd.merge(co,od,on="OrderID")
 
+# año:
+co_od["anio"]= co_od["OrderDate"].dt.year
+
 print(co_od)
-# pivot: python pivot25.py
 
-"""
-HALLAZGO:
-
-"""
+# pivot: 
+informe=pd.pivot_table(
+    co_od,
+    index="Country",
+    columns="anio",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
