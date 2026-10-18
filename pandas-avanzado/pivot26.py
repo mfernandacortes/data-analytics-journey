@@ -33,4 +33,12 @@ df["monto"]= df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 df["anio"]=df["OrderDate"].dt.year
 print(df)
 # pivot: 
-
+informe=pd.pivot_table(
+    df,
+    index=["ShipperID", "CompanyName"],
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
