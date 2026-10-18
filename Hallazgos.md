@@ -230,3 +230,9 @@ Peacock lidera cuatro categorías: Beverages ($50.308), Condiments ($23.315), Me
 **Archivo:** pandas-avanzado/pivot25.py
 
 Alemania y USA son los dos mercados más grandes, muy por encima del resto. Alemania lidera 1996 (1.910 unidades) y 1997 (4.756), y USA lidera 1998 (3.152), con el año incompleto (llega hasta principios de mayo). Sumando los tres años, USA queda apenas arriba: 9.330 unidades contra 9.213 de Alemania. Argentina no registra ventas en 1996 y recién aparece en 1997.
+
+## Hallazgo — Ventas por transportista y año (Northwind):
+**Fecha:** 18/10/2026
+**Archivo:** pandas-avanzado/pivot26.py
+
+United Package es el transportista que más monto movió en total ($533.548 sumando los tres años) y lidera 1997 ($237.146) y 1998 ($219.629). Federal Shipping lideraba en 1996 ($81.221), pero pasa al último lugar en 1998 ($102.549), aunque ese año está incompleto (llega hasta principios de mayo). Speedy Express fue el de menor monto en 1996 y 1997.
