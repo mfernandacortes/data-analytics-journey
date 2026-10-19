@@ -236,3 +236,9 @@ Alemania y USA son los dos mercados más grandes, muy por encima del resto. Alem
 **Archivo:** pandas-avanzado/pivot26.py
 
 United Package es el transportista que más monto movió en total ($533.548 sumando los tres años) y lidera 1997 ($237.146) y 1998 ($219.629). Federal Shipping lideraba en 1996 ($81.221), pero pasa al último lugar en 1998 ($102.549), aunque ese año está incompleto (llega hasta principios de mayo). Speedy Express fue el de menor monto en 1996 y 1997.
+
+## Hallazgo — Unidades vendidas por empleado y año (Northwind):
+**Fecha:** 19/10/2026
+**Archivo:** pandas-avanzado/pivot27.py
+
+Peacock lidera 1996 (2.212 unidades) y 1997 (5.273), y también el total de los tres años (9.798). En 1998 Leverling pasa al primer lugar (2.476), con Peacock cayendo a 2.313. Dodsworth es el único empleado que crece todos los años (575, 955 y 1.140), mientras los otros 8 bajan en 1998. Ese año está incompleto (los datos llegan hasta principios de mayo), así que el resto no necesariamente vendió menos. El patrón coincide con el del monto vendido: Peacock lidera 1996 y 1997, y Leverling 1998.
