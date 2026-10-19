@@ -25,13 +25,19 @@ od=pd.read_sql("select OrderID, Quantity from [Order Details]", engine)
 eo=pd.merge(e, o, on="EmployeeID")
 eo_od=pd.merge(eo, od, on="OrderID")
 
-# calcular monto:
+# año:
+eo_od["anio"]=eo_od["OrderDate"].dt.year
+
 print(eo_od)
 
 # pivot:
+informe=pd.pivot_table(
+    eo_od,
+    index=["EmployeeID", "LastName"],
+    columns="anio",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
-"""
-python pivot27.py
-
-"""
+print(informe)
