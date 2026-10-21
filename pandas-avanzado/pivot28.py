@@ -26,16 +26,19 @@ od=pd.read_sql("select OrderID, Quantity, UnitPrice, Discount from [Order Detail
 
 # merge:
 so_o=pd.merge(sh, o, right_on="ShipVia", left_on="ShipperID")
-df=pd.merge(so_o, od, on="OrderID")
-df1=pd.merge(df, c, on="CustomerID")
-print(df1)
+df1=pd.merge(so_o, od, on="OrderID")
+df=pd.merge(df1, c, on="CustomerID")
+print(df)
 # calcular monto: 
 
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 # pivot:
-
-
-"""
-python pivot28.py
-
-
-"""
+informe=pd.pivot_table(
+    df,
+    index="Country",
+    columns=["ShipperID", "CompanyName"],
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+print(informe)
