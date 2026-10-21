@@ -242,3 +242,9 @@ United Package es el transportista que más monto movió en total ($533.548 suma
 **Archivo:** pandas-avanzado/pivot27.py
 
 Peacock lidera 1996 (2.212 unidades) y 1997 (5.273), y también el total de los tres años (9.798). En 1998 Leverling pasa al primer lugar (2.476), con Peacock cayendo a 2.313. Dodsworth es el único empleado que crece todos los años (575, 955 y 1.140), mientras los otros 8 bajan en 1998. Ese año está incompleto (los datos llegan hasta principios de mayo), así que el resto no necesariamente vendió menos. El patrón coincide con el del monto vendido: Peacock lidera 1996 y 1997, y Leverling 1998.
+
+## Hallazgo — Monto vendido por país y transportista (Northwind):
+**Fecha:** 21/10/2026
+**Archivo:** pandas-avanzado/pivot28.py
+
+United Package es el transportista que más monto movió en 15 de los 21 países, incluida USA ($100.791, con Federal Shipping cerca en $91.057). Speedy Express lidera solo en Alemania ($94.847, el monto más alto de un transportista en un país tras USA) e Italia. Federal Shipping lidera en Dinamarca, México, Portugal y Suiza. Alemania es el único mercado grande donde United Package no es primero.
