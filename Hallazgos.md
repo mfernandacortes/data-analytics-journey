@@ -248,3 +248,9 @@ Peacock lidera 1996 (2.212 unidades) y 1997 (5.273), y también el total de los 
 **Archivo:** pandas-avanzado/pivot28.py
 
 United Package es el transportista que más monto movió en 15 de los 21 países, incluida USA ($100.791, con Federal Shipping cerca en $91.057). Speedy Express lidera solo en Alemania ($94.847, el monto más alto de un transportista en un país tras USA) e Italia. Federal Shipping lidera en Dinamarca, México, Portugal y Suiza. Alemania es el único mercado grande donde United Package no es primero.
+
+## Hallazgo — Monto vendido por país y transportista (Northwind):
+**Fecha:** 22/10/2026
+**Archivo:** pandas-avanzado/pivot29.py
+
+Monto vendido por categoría y transportista (Northwind): United Package lidera 7 de las 8 categorías. La única excepción es Condiments, donde Speedy Express gana por muy poco ($39.675 contra $38.863). El monto más alto del pivot es Beverages con United Package ($118.621). La ventaja más marcada está en Meat/Poultry, donde United Package ($84.281) vende unas 2,7 veces más que Speedy Express ($31.139). Coincide con el pivot por país, donde United Package también lidera en 15 de 21 países.
