@@ -254,3 +254,9 @@ United Package es el transportista que más monto movió en 15 de los 21 países
 **Archivo:** pandas-avanzado/pivot29.py
 
 Monto vendido por categoría y transportista (Northwind): United Package lidera 7 de las 8 categorías. La única excepción es Condiments, donde Speedy Express gana por muy poco ($39.675 contra $38.863). El monto más alto del pivot es Beverages con United Package ($118.621). La ventaja más marcada está en Meat/Poultry, donde United Package ($84.281) vende unas 2,7 veces más que Speedy Express ($31.139). Coincide con el pivot por país, donde United Package también lidera en 15 de 21 países.
+
+## Hallazgo — Monto vendido por empleado y transportista (Northwind):
+**Fecha:** 23/10/2026
+**Archivo:** pandas-avanzado/pivot30.py
+
+United Package lidera en 8 de los 9 empleados. La única excepción es Fuller, donde Speedy Express gana por poco ($63.300 contra $61.960). El monto más alto es Peacock con United Package ($106.643), y Peacock es también el empleado con mayor monto total ($232.891). En King la diferencia entre United Package ($52.099) y Federal Shipping ($50.430) es mínima. Coincide con los pivots por país y por categoría, donde United Package también es el transportista que más monto mueve.
