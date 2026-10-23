@@ -30,12 +30,16 @@ df=pd.merge(eo_sh, od, on="OrderID")
 
 print(df)
 # calcular monto:
-
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
 # pivot: 
+informe=pd.pivot_table(
+    df,
+    index=["EmployeeID", "LastName"],
+    columns=["ShipperID", "CompanyName"],
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
-"""
-python pivot30.py
-
-"""
+print(informe)
