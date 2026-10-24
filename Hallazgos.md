@@ -260,3 +260,9 @@ Monto vendido por categoría y transportista (Northwind): United Package lidera 
 **Archivo:** pandas-avanzado/pivot30.py
 
 United Package lidera en 8 de los 9 empleados. La única excepción es Fuller, donde Speedy Express gana por poco ($63.300 contra $61.960). El monto más alto es Peacock con United Package ($106.643), y Peacock es también el empleado con mayor monto total ($232.891). En King la diferencia entre United Package ($52.099) y Federal Shipping ($50.430) es mínima. Coincide con los pivots por país y por categoría, donde United Package también es el transportista que más monto mueve.
+
+## Hallazgo — Monto vendido por país y categoría (Northwind):
+**Fecha:** 24/10/2026
+**Archivo:** pandas-avanzado/pivot31.py
+
+USA y Alemania se reparten el primer lugar entre las seis categorías visibles. USA lidera Beverages ($60.521), Confections ($36.315), Meat/Poultry ($41.635) y Seafood ($23.507). Alemania lidera Condiments ($16.737) y Produce ($16.013). En Meat/Poultry USA vende el doble que Alemania ($21.456), y en Condiments, Confections y Seafood la diferencia entre los dos es mínima. Irlanda vende $20.914 en Meat/Poultry, unas 3 veces más que en su siguiente categoría visible (Seafood, $6.899). Brasil concentra Beverages ($37.193), también unas 3 veces más que en su siguiente categoría. Argentina no registra ventas de Meat/Poultry. El resultado oculta Dairy Products y Grains/Cereals, así que el hallazgo vale solo para las otras seis.
