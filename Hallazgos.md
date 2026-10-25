@@ -266,3 +266,9 @@ United Package lidera en 8 de los 9 empleados. La única excepción es Fuller, d
 **Archivo:** pandas-avanzado/pivot31.py
 
 USA y Alemania se reparten el primer lugar entre las seis categorías visibles. USA lidera Beverages ($60.521), Confections ($36.315), Meat/Poultry ($41.635) y Seafood ($23.507). Alemania lidera Condiments ($16.737) y Produce ($16.013). En Meat/Poultry USA vende el doble que Alemania ($21.456), y en Condiments, Confections y Seafood la diferencia entre los dos es mínima. Irlanda vende $20.914 en Meat/Poultry, unas 3 veces más que en su siguiente categoría visible (Seafood, $6.899). Brasil concentra Beverages ($37.193), también unas 3 veces más que en su siguiente categoría. Argentina no registra ventas de Meat/Poultry. El resultado oculta Dairy Products y Grains/Cereals, así que el hallazgo vale solo para las otras seis.
+
+## Hallazgo — Unidades vendidas por país de proveedor y categoría (Northwind):
+**Fecha:** 25/10/2026
+**Archivo:** pandas-avanzado/pivot32.py
+
+USA (6.828), Alemania (6.120) y Australia (6.045) son los países de proveedor con más unidades vendidas. La celda más alta es Francia en Dairy Products (3.073), y esa categoría solo tiene proveedores en cuatro países (Francia, Italia, Noruega y España). Alemania y Australia son los más diversificados, con proveedores en 7 de las 8 categorías, mientras que Brasil, Dinamarca, Países Bajos, Noruega y España concentran todo en una sola categoría. Los 0 del pivot indican que el país no tiene proveedores de esa categoría, no que no se vendió.
