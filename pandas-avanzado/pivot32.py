@@ -30,9 +30,13 @@ df1=pd.merge(su_p, od, on="ProductID")
 df=pd.merge(df1, ca, on="CategoryID")
 print(df)
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index="Country",
+    columns=["CategoryID", "CategoryName"],
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
-"""
-python pivot32.py
-
-"""
+print(informe)
