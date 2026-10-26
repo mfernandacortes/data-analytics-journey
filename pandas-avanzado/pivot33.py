@@ -20,19 +20,31 @@ La gerencia pide ver cuántas unidades (Quantity) se vendieron por categoría
 # traer tablas:
 ca=pd.read_sql("select CategoryID, CategoryName from Categories", engine)
 p=pd.read_sql("select ProductID, ProductName, CategoryID from Products", engine)
-od=pd.read_sql("select ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
+o=pd.read_sql("select OrderID, OrderDate from Orders", engine)
+od=pd.read_sql("select OrderID, ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
 
 
 # merge:
 ca_p=pd.merge(ca, p, on="CategoryID")
-df=pd.merge(ca_p, od, on="ProductID")
+df1=pd.merge(ca_p, od, on="ProductID")
+df=pd.merge(df1, o, on="OrderID")
 
+# año:
+df["anio"]=df["OrderDate"].dt.year
 
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID", "CategoryName"],
+    columns="anio",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
+print(informe)
 """
 python pivot33.py
 
