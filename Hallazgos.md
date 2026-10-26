@@ -272,3 +272,9 @@ USA y Alemania se reparten el primer lugar entre las seis categorías visibles. 
 **Archivo:** pandas-avanzado/pivot32.py
 
 USA (6.828), Alemania (6.120) y Australia (6.045) son los países de proveedor con más unidades vendidas. La celda más alta es Francia en Dairy Products (3.073), y esa categoría solo tiene proveedores en cuatro países (Francia, Italia, Noruega y España). Alemania y Australia son los más diversificados, con proveedores en 7 de las 8 categorías, mientras que Brasil, Dinamarca, Países Bajos, Noruega y España concentran todo en una sola categoría. Los 0 del pivot indican que el país no tiene proveedores de esa categoría, no que no se vendió.
+
+## Hallazgo — Unidades vendidas por categoría y año (Northwind):
+**Fecha:** 26/10/2026
+**Archivo:** pandas-avanzado/pivot33.py
+
+Dairy Products lidera 1996 (2.086 unidades) y 1997 (4.374). En 1998 pasa a liderar Beverages (3.694), con el año incompleto (los datos llegan hasta principios de mayo, cerca de un tercio del año). Beverages vendió en esos pocos meses casi lo mismo que en todo 1997 (3.996), y su monto por unidad subió de unos $26 a unos $31. Meat/Poultry y Produce son las categorías con menos unidades en 1997 (2.189 y 1.583). Los totales por año (9.581, 25.489 y 16.247) coinciden con los del pivot de unidades por empleado.
