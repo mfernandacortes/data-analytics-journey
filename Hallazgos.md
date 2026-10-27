@@ -278,3 +278,9 @@ USA (6.828), Alemania (6.120) y Australia (6.045) son los países de proveedor c
 **Archivo:** pandas-avanzado/pivot33.py
 
 Dairy Products lidera 1996 (2.086 unidades) y 1997 (4.374). En 1998 pasa a liderar Beverages (3.694), con el año incompleto (los datos llegan hasta principios de mayo, cerca de un tercio del año). Beverages vendió en esos pocos meses casi lo mismo que en todo 1997 (3.996), y su monto por unidad subió de unos $26 a unos $31. Meat/Poultry y Produce son las categorías con menos unidades en 1997 (2.189 y 1.583). Los totales por año (9.581, 25.489 y 16.247) coinciden con los del pivot de unidades por empleado.
+
+## Hallazgo — Unidades enviadas por transportista y año (Northwind):
+**Fecha:** 27/10/2026
+**Archivo:** pandas-avanzado/pivot34.py
+
+United Package es el transportista con más unidades en total (19.945) y lidera 1997 (9.253) y 1998 (7.345). Federal Shipping lideraba 1996 (3.680), pero pasa al último lugar en 1997 (7.874) y se mantiene último en 1998 (3.899). Speedy Express queda en el medio en 1997 y 1998. Los datos de 1998 llegan hasta principios de mayo, así que ese año no es comparable con los anteriores. El patrón coincide con el pivot de monto por transportista y año.
