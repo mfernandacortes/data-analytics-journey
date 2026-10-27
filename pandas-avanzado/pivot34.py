@@ -31,8 +31,16 @@ df["anio"]=df["OrderDate"].dt.year
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["ShipperID", "CompanyName"],
+    columns="anio",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
+print(informe)
 """
 python pivot34.py
 
