@@ -284,3 +284,9 @@ Dairy Products lidera 1996 (2.086 unidades) y 1997 (4.374). En 1998 pasa a lider
 **Archivo:** pandas-avanzado/pivot34.py
 
 United Package es el transportista con más unidades en total (19.945) y lidera 1997 (9.253) y 1998 (7.345). Federal Shipping lideraba 1996 (3.680), pero pasa al último lugar en 1997 (7.874) y se mantiene último en 1998 (3.899). Speedy Express queda en el medio en 1997 y 1998. Los datos de 1998 llegan hasta principios de mayo, así que ese año no es comparable con los anteriores. El patrón coincide con el pivot de monto por transportista y año.
+
+## Hallazgo — Monto vendido por país de proveedor y año (Northwind): 
+**Fecha:** 28/10/2026
+**Archivo:** pandas-avanzado/pivot35.py
+
+Francia lidera los tres años (1996: $47.871, 1997: $112.031, 1998: $117.652) y concentra cerca del 22% del monto total. Es el único país grande que sigue creciendo en 1998, con el año incompleto (los datos llegan hasta principios de mayo). En 1997 le siguen Alemania ($95.152) y Australia ($91.943). Brasil también sube los tres años, pero con montos muy chicos (de $557 a $2.318). A diferencia del país del cliente, donde lideran USA y Alemania, el país de proveedor que más vende es Francia.

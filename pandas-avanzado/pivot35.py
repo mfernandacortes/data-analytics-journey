@@ -48,7 +48,3 @@ informe=pd.pivot_table(
 
 print(informe)
 
-"""
-python pivot35.py
-
-"""
