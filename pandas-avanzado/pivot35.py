@@ -30,11 +30,23 @@ su_p=pd.merge(su, p, on="SupplierID")
 sup_od=pd.merge(su_p, od, on="ProductID")
 df=pd.merge(sup_od, o, on="OrderID")
 
-# calcular monto:
+# calcular monto y columna año:
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
+df["anio"]=df["OrderDate"].dt.year
+
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index="Country",
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 
 """
 python pivot35.py
