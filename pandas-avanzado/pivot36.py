@@ -32,10 +32,18 @@ supod_o=pd.merge(sup_od, o, on="OrderID")
 df=pd.merge(supod_o, sh, left_on="ShipVia", right_on="ShipperID")
 
 # calcular monto:
-print(df)
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
 # pivot:
 
+informe=pd.pivot_table(
+    df,
+    index="Country",
+    columns="Transportista",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
-# python pivot36.py
+print(informe)
 
