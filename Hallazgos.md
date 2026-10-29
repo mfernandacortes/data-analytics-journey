@@ -290,3 +290,9 @@ United Package es el transportista con más unidades en total (19.945) y lidera 
 **Archivo:** pandas-avanzado/pivot35.py
 
 Francia lidera los tres años (1996: $47.871, 1997: $112.031, 1998: $117.652) y concentra cerca del 22% del monto total. Es el único país grande que sigue creciendo en 1998, con el año incompleto (los datos llegan hasta principios de mayo). En 1997 le siguen Alemania ($95.152) y Australia ($91.943). Brasil también sube los tres años, pero con montos muy chicos (de $557 a $2.318). A diferencia del país del cliente, donde lideran USA y Alemania, el país de proveedor que más vende es Francia.
+
+## Hallazgo — Monto vendido por país de proveedor y transportista (Northwind):  
+**Fecha:** 29/10/2026
+**Archivo:** pandas-avanzado/pivot36.py
+
+United Package lidera en 9 de los 16 países de proveedor, incluidos los de mayor monto: Francia ($124.842, la celda más alta), Alemania ($93.658) y Australia ($67.455). Speedy Express lidera en 5 (Brasil, Dinamarca, Italia, Países Bajos y Noruega), tres de ellos con montos muy chicos, y Federal Shipping en 2 (Canadá y España). En Italia la diferencia es mínima: Speedy Express $38.764 contra $36.276 de United Package. Coincide con los pivots por país del cliente y por categoría, donde United Package también es el transportista que más monto mueve.
