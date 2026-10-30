@@ -12,23 +12,29 @@ engine = create_engine(
 
 """
 CONSIGNA:
-
+La gerencia pide saber cuánto vendió cada empleado (EmployeeID y LastName en las 
+filas) en cada país de los clientes (Country en las columnas).
 
 """
 
 # traer tablas:
-
+e=pd.read_sql("select EmployeeID, LastName from Employees", engine)
+c=pd.read_sql("select CustomerID, CompanyName, Country from Customers", engine)
+o=pd.read_sql("select OrderID, CustomerID, EmployeeID from Orders", engine)
+od=pd.read_sql("select OrderID, Quantity, UnitPrice, Discount from [Order Details]", engine)
 
 # merge:
-
+eo=pd.merge(e, o, on="EmployeeID")
+eo_c=pd.merge(eo, c, on="CustomerID")
+df=pd.merge(eo_c, od, on="OrderID")
 
 # calcular monto:
-
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
 # pivot:
-
+print(df)
 
 """
-HALLAZGO:
+python pivot
 
 """
