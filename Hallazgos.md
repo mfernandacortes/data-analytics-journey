@@ -296,3 +296,9 @@ Francia lidera los tres años (1996: $47.871, 1997: $112.031, 1998: $117.652) y 
 **Archivo:** pandas-avanzado/pivot36.py
 
 United Package lidera en 9 de los 16 países de proveedor, incluidos los de mayor monto: Francia ($124.842, la celda más alta), Alemania ($93.658) y Australia ($67.455). Speedy Express lidera en 5 (Brasil, Dinamarca, Italia, Países Bajos y Noruega), tres de ellos con montos muy chicos, y Federal Shipping en 2 (Canadá y España). En Italia la diferencia es mínima: Speedy Express $38.764 contra $36.276 de United Package. Coincide con los pivots por país del cliente y por categoría, donde United Package también es el transportista que más monto mueve.
+
+## Hallazgo — Monto vendido por empleado y país del cliente (Northwind): 
+**Fecha:** 30/10/2026
+**Archivo:** pandas-avanzado/pivot37.py
+
+ En USA lidera Peacock ($46.385), seguido muy de cerca por Davolio ($43.761). Peacock también lidera Bélgica ($13.597), Davolio el Reino Unido ($10.946), King Austria ($25.745), Callahan Argentina ($2.751) y Leverling Venezuela ($11.246). Hay celdas en 0: Buchanan no vendió en Argentina ni en Austria, y Callahan no vendió en Bélgica. El resultado oculta 15 de los 21 países, así que el hallazgo vale solo para los seis visibles.
