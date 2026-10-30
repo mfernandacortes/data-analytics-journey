@@ -32,9 +32,13 @@ df=pd.merge(eo_c, od, on="OrderID")
 df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
 # pivot:
-print(df)
+informe=pd.pivot_table(
+    df,
+    index=["EmployeeID", "LastName"],
+    columns="Country",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
-"""
-python pivot37.py
-
-"""
+print(informe)
