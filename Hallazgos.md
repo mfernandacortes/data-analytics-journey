@@ -302,3 +302,9 @@ United Package lidera en 9 de los 16 países de proveedor, incluidos los de mayo
 **Archivo:** pandas-avanzado/pivot37.py
 
  En USA lidera Peacock ($46.385), seguido muy de cerca por Davolio ($43.761). Peacock también lidera Bélgica ($13.597), Davolio el Reino Unido ($10.946), King Austria ($25.745), Callahan Argentina ($2.751) y Leverling Venezuela ($11.246). Hay celdas en 0: Buchanan no vendió en Argentina ni en Austria, y Callahan no vendió en Bélgica. El resultado oculta 15 de los 21 países, así que el hallazgo vale solo para los seis visibles.
+
+ ## Hallazgo — Monto vendido por país del cliente y año (Northwind): 
+**Fecha:** 01/11/2026
+**Archivo:** pandas-avanzado/pivot38.py
+
+Alemania lidera 1996 ($35.407) y 1997 ($117.320), y USA pasa a liderar 1998 ($92.634), con el año incompleto (los datos llegan hasta principios de mayo). Entre los dos concentran la mayor parte del monto en 1997. Argentina no registra ventas en 1996 y aparece recién en 1997. Seis países suben en 1998 pese a que ese año está incompleto: Argentina, Bélgica, Brasil, Noruega, Polonia y España. Los totales por año ($208.084 en 1996 y $617.085 en 1997) coinciden con los de otros pivots de monto.
