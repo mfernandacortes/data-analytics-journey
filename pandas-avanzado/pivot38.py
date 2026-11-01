@@ -28,11 +28,19 @@ co_od=pd.merge(co, od, on="OrderID")
 # calcular monto:
 co_od["monto"]=co_od["Quantity"] * co_od["UnitPrice"] * (1 - co_od["Discount"])
 
+# crear la columna año:
+co_od["anio"]=co_od["OrderDate"].dt.year
+
 print(co_od)
+
 # pivot:
+informe=pd.pivot_table(
+    co_od,
+    index="Country",
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
-"""
-python pivot38.py
-
-"""
+print(informe)
