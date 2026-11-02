@@ -29,8 +29,16 @@ co_od=pd.merge(co, od, on="OrderID")
 co_od["anio"]=co_od["OrderDate"].dt.year
 
 # pivot:
-print(co_od)
+informe=pd.pivot_table(
+    co_od,
+    index="Country",
+    columns="anio",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 """
 python pivot39.py
 
