@@ -31,7 +31,16 @@ df=pd.merge(eo_sh, od, on="OrderID")
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["EmployeeID", "LastName"],
+    columns=["ShipperID", "CompanyName"],
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 
 """
 python pivot40.py
