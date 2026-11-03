@@ -303,8 +303,14 @@ United Package lidera en 9 de los 16 países de proveedor, incluidos los de mayo
 
  En USA lidera Peacock ($46.385), seguido muy de cerca por Davolio ($43.761). Peacock también lidera Bélgica ($13.597), Davolio el Reino Unido ($10.946), King Austria ($25.745), Callahan Argentina ($2.751) y Leverling Venezuela ($11.246). Hay celdas en 0: Buchanan no vendió en Argentina ni en Austria, y Callahan no vendió en Bélgica. El resultado oculta 15 de los 21 países, así que el hallazgo vale solo para los seis visibles.
 
- ## Hallazgo — Monto vendido por país del cliente y año (Northwind): 
+## Hallazgo — Monto vendido por país del cliente y año (Northwind): 
 **Fecha:** 01/11/2026
 **Archivo:** pandas-avanzado/pivot38.py
 
 Alemania lidera 1996 ($35.407) y 1997 ($117.320), y USA pasa a liderar 1998 ($92.634), con el año incompleto (los datos llegan hasta principios de mayo). Entre los dos concentran la mayor parte del monto en 1997. Argentina no registra ventas en 1996 y aparece recién en 1997. Seis países suben en 1998 pese a que ese año está incompleto: Argentina, Bélgica, Brasil, Noruega, Polonia y España. Los totales por año ($208.084 en 1996 y $617.085 en 1997) coinciden con los de otros pivots de monto.
+
+## Hallazgo — Unidades enviadas por empleado y transportista (Northwind):  
+**Fecha:** 03/11/2026
+**Archivo:** pandas-avanzado/pivot38.py
+
+United Package lidera en 5 de los 9 empleados (Fuller, Leverling, Peacock, Callahan y Dodsworth), Speedy Express en 3 (Davolio, Buchanan y Suyama) y Federal Shipping en 1 (King). La celda más alta es Peacock con United Package (4.122 unidades). En Davolio los tres transportistas quedan casi parejos (entre 2.546 y 2.644), y en Suyama la diferencia entre Speedy Express y United Package es mínima (1.282 contra 1.265). A diferencia del pivot de monto, donde United Package lideraba en 8 de 9 empleados, en unidades el liderazgo está más repartido: Davolio vendió más unidades con Speedy Express (2.644) pero más monto con United Package ($73.307 contra $54.443).
