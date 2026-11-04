@@ -27,9 +27,10 @@ p=pd.read_sql("select ProductID, CategoryID, ProductName from Products", engine)
 # merge:
 eo=pd.merge(e,o,on="EmployeeID")
 eo_od=pd.merge(eo, od, on="OrderID")
-
+ca_p=pd.merge(eo_od, p, on="ProductID")
+df=pd.merge(ca_p, ca, on="CategoryID")
 # calcular monto:
-print(eo_od)
+print(df)
 
 # pivot:
 
