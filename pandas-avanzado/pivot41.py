@@ -21,6 +21,8 @@ LastName en las filas) en cada categoría de producto (CategoryName en las colum
 e=pd.read_sql("select EmployeeID, LastName from Employees", engine)
 o=pd.read_sql("select OrderID, EmployeeID from Orders", engine)
 od=pd.read_sql("select OrderID, ProductID, Quantity from [Order Details]", engine)
+ca=pd.read_sql("select CategoryID, CategoryName from Categories", engine)
+p=pd.read_sql("select ProductID, CategoryID, ProductName from Products", engine)
 # merge:
 eo=pd.merge(e,o,on="EmployeeID")
 
