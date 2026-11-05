@@ -33,8 +33,16 @@ df=pd.merge(ca_p, ca, on="CategoryID")
 print(df)
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["EmployeeID", "LastName"],
+    columns=["CategoryID", "CategoryName"],
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
+print(informe)
 """
 
 python pivot41.py
