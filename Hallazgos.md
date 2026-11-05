@@ -314,3 +314,10 @@ Alemania lidera 1996 ($35.407) y 1997 ($117.320), y USA pasa a liderar 1998 ($92
 **Archivo:** pandas-avanzado/pivot38.py
 
 United Package lidera en 5 de los 9 empleados (Fuller, Leverling, Peacock, Callahan y Dodsworth), Speedy Express en 3 (Davolio, Buchanan y Suyama) y Federal Shipping en 1 (King). La celda más alta es Peacock con United Package (4.122 unidades). En Davolio los tres transportistas quedan casi parejos (entre 2.546 y 2.644), y en Suyama la diferencia entre Speedy Express y United Package es mínima (1.282 contra 1.265). A diferencia del pivot de monto, donde United Package lideraba en 8 de 9 empleados, en unidades el liderazgo está más repartido: Davolio vendió más unidades con Speedy Express (2.644) pero más monto con United Package ($73.307 contra $54.443).
+
+## Hallazgo — Unidades enviadas por transportista y país del cliente (Northwind): 
+**Fecha:** 05/11/2026
+**Archivo:** pandas-avanzado/pivot42.py
+
+
+ En los 10 países que se ven en el resultado, United Package lidera en 7 (Argentina, Bélgica, Brasil, Suecia, Reino Unido, USA y Venezuela), Federal Shipping en 2 (Canadá y Suiza) y Speedy Express en 1 (Austria). La celda más alta es USA con United Package (3.725 unidades). En Austria la diferencia es mínima: Speedy Express 1.797 contra 1.777 de United Package. Los totales por país coinciden con los del pivot de unidades por país y año (por ejemplo, USA suma 9.330). El resultado oculta 11 países, entre ellos Alemania, así que el hallazgo vale solo para los 10 visibles.
