@@ -29,14 +29,16 @@ sh_o=pd.merge(sh, o, left_on="ShipperID", right_on="ShipVia")
 sho_od=pd.merge(sh_o, od, on="OrderID")
 df=pd.merge(sho_od, c, on="CustomerID")
 
-# calcular monto:
 
 print(df)
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["ShipperID", "CompanyName"],
+    columns="Country",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
-"""
-python pivot42.py
-
-
-"""
+print(informe)
