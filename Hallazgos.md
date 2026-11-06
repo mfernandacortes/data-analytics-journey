@@ -329,4 +329,4 @@ United Package lidera en 5 de los 9 empleados (Fuller, Leverling, Peacock, Calla
 **Fecha:** 06/11/2026
 **Archivo:** pandas-avanzado/pivot43.py
 
- 77 productos tuvieron ventas. Entre los 10 que se ven en el resultado, Chai es el único que crece los tres años ($1.606, $4.887 y $6.295), con 1998 incompleto (los datos llegan hasta principios de mayo). Röd Kaviar salta de $300 en 1996 a $3.517 en 1997 y cae a $180 en 1998. Chef Anton’s Gumbo Mix se hunde en 1997 ($374) entre dos años más altos ($1.931 y $3.042). Como la pantalla muestra solo 10 de los 77 productos, el hallazgo vale solo para esos.
+Entre los 10 que se ven en el resultado, Chai es el único que crece los tres años ($1.606, $4.887 y $6.295), con 1998 incompleto (los datos llegan hasta principios de mayo). Röd Kaviar salta de $300 en 1996 a $3.517 en 1997 y cae a $180 en 1998. Chef Anton’s Gumbo Mix se hunde en 1997 ($374) entre dos años más altos ($1.931 y $3.042). Como la pantalla muestra solo 10 de los 77 productos, el hallazgo vale solo para esos.
