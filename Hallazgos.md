@@ -315,9 +315,18 @@ Alemania lidera 1996 ($35.407) y 1997 ($117.320), y USA pasa a liderar 1998 ($92
 
 United Package lidera en 5 de los 9 empleados (Fuller, Leverling, Peacock, Callahan y Dodsworth), Speedy Express en 3 (Davolio, Buchanan y Suyama) y Federal Shipping en 1 (King). La celda más alta es Peacock con United Package (4.122 unidades). En Davolio los tres transportistas quedan casi parejos (entre 2.546 y 2.644), y en Suyama la diferencia entre Speedy Express y United Package es mínima (1.282 contra 1.265). A diferencia del pivot de monto, donde United Package lideraba en 8 de 9 empleados, en unidades el liderazgo está más repartido: Davolio vendió más unidades con Speedy Express (2.644) pero más monto con United Package ($73.307 contra $54.443).
 
+
 ## Hallazgo — Unidades enviadas por transportista y país del cliente (Northwind): 
 **Fecha:** 05/11/2026
 **Archivo:** pandas-avanzado/pivot42.py
 
-
  En los 10 países que se ven en el resultado, United Package lidera en 7 (Argentina, Bélgica, Brasil, Suecia, Reino Unido, USA y Venezuela), Federal Shipping en 2 (Canadá y Suiza) y Speedy Express en 1 (Austria). La celda más alta es USA con United Package (3.725 unidades). En Austria la diferencia es mínima: Speedy Express 1.797 contra 1.777 de United Package. Los totales por país coinciden con los del pivot de unidades por país y año (por ejemplo, USA suma 9.330). El resultado oculta 11 países, entre ellos Alemania, así que el hallazgo vale solo para los 10 visibles.
+
+
+
+
+## Hallazgo —  Monto vendido por producto y año (Northwind):
+**Fecha:** 06/11/2026
+**Archivo:** pandas-avanzado/pivot43.py
+
+ 77 productos tuvieron ventas. Entre los 10 que se ven en el resultado, Chai es el único que crece los tres años ($1.606, $4.887 y $6.295), con 1998 incompleto (los datos llegan hasta principios de mayo). Röd Kaviar salta de $300 en 1996 a $3.517 en 1997 y cae a $180 en 1998. Chef Anton’s Gumbo Mix se hunde en 1997 ($374) entre dos años más altos ($1.931 y $3.042). Como la pantalla muestra solo 10 de los 77 productos, el hallazgo vale solo para esos.
