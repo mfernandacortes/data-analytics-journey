@@ -330,3 +330,9 @@ United Package lidera en 5 de los 9 empleados (Fuller, Leverling, Peacock, Calla
 **Archivo:** pandas-avanzado/pivot43.py
 
 Entre los 10 que se ven en el resultado, Chai es el único que crece los tres años ($1.606, $4.887 y $6.295), con 1998 incompleto (los datos llegan hasta principios de mayo). Röd Kaviar salta de $300 en 1996 a $3.517 en 1997 y cae a $180 en 1998. Chef Anton’s Gumbo Mix se hunde en 1997 ($374) entre dos años más altos ($1.931 y $3.042). Como la pantalla muestra solo 10 de los 77 productos, el hallazgo vale solo para esos.
+
+## Hallazgo — Monto vendido por empleado y categoría (Northwind):
+**Fecha:** 09/11/2026
+**Archivo:** pandas-avanzado/pivot44.py
+
+Margaret Peacock lidera con $232.890,85 (18,4% del total de $1.265.793,03) y, junto con Janet Leverling ($202.812,84) y Nancy Davolio ($192.107,60), suma el 49,6% de las ventas. Steven Buchanan cierra con $68.792,28. Anne Dodsworth casi no vende Produce ($315, el 0,4% de su total), mientras que los demás empleados venden entre $7.109 y $19.706 en esa categoría. Dairy Products pesa más del 25% en Buchanan (31,9%) y en Dodsworth (27,3%). Se usó el apellido como identificador, ya que los 9 empleados tienen apellidos únicos. Como la pantalla ocultó la columna Grains/Cereals, lo de superar el 25% vale solo para las categorías que se ven.
