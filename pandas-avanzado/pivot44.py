@@ -23,8 +23,8 @@ con monto = UnitPrice * Quantity * (1 - Discount).
 # traer tablas:
 ca=pd.read_sql("select CategoryID, CategoryName from Categories", engine)
 p=pd.read_sql("select ProductID, ProductName, CategoryID from Products", engine)
-e=pd.read_sql("select EmployeeID, LastName from Employees", engine)
-o=pd.read_sql("select OrderID, EmployeeID from Orders", engine)
+e=pd.read_sql("select EmployeeID, LastName, FirstName from Employees", engine)
+o=pd.read_sql("select OrderID, EmployeeID, OrderDate from Orders", engine)
 od=pd.read_sql("select OrderID, ProductID, Quantity, UnitPrice, Discount from [Order Details]", engine)
 
 # merge:
@@ -34,14 +34,30 @@ capod_o=pd.merge(cap_od, o, on="OrderID")
 df=pd.merge(capod_o, e, on="EmployeeID")
 
 
-print(df)
-print(df.isnull().sum())
+
 # calcular monto:
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
+
+# nombre completo:
+df["NombreCompleto"] = df["LastName"]+" "+df["FirstName"]
+
 
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    #index=["EmployeeID", "LastName", "FirstName"],
+    index="NombreCompleto",
+    columns="CategoryName",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
 
-
+print(informe)
+informe["Total"] = informe.sum(axis=1)
+pivot1 = informe.sort_values("Total", ascending=False).round(2)
+print(pivot1)
 """
 python pivot44.py
 
