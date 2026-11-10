@@ -336,3 +336,10 @@ Entre los 10 que se ven en el resultado, Chai es el único que crece los tres a�
 **Archivo:** pandas-avanzado/pivot44.py
 
 Margaret Peacock lidera con $232.890,85 (18,4% del total de $1.265.793,03) y, junto con Janet Leverling ($202.812,84) y Nancy Davolio ($192.107,60), suma el 49,6% de las ventas. Steven Buchanan cierra con $68.792,28. Anne Dodsworth casi no vende Produce ($315, el 0,4% de su total), mientras que los demás empleados venden entre $7.109 y $19.706 en esa categoría. Dairy Products pesa más del 25% en Buchanan (31,9%) y en Dodsworth (27,3%). Se usó el apellido como identificador, ya que los 9 empleados tienen apellidos únicos. Como la pantalla ocultó la columna Grains/Cereals, lo de superar el 25% vale solo para las categorías que se ven.
+
+
+## Hallazgo — Unidades enviadas por transportista y categoría (Northwind):
+**Fecha:** 10/11/2026
+**Archivo:** pandas-avanzado/pivot45.py
+
+United Package lidera en 7 de las 8 categorías. La única excepción es Condiments, donde Speedy Express gana (1.991 unidades contra 1.816), la misma excepción que aparece en el pivot de monto. La celda más alta es Beverages con United Package (3.809). La mayor distancia está en Meat/Poultry, donde United Package (1.825) mueve casi el doble que Speedy Express (971). Los totales por transportista (United Package 19.945, Speedy Express 15.919 y Federal Shipping 15.453) coinciden con los del pivot de unidades por transportista y año.
