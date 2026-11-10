@@ -32,14 +32,16 @@ capod=pd.merge(cap_od, o, on="OrderID")
 df=pd.merge(capod, sh, left_on="ShipVia", right_on="ShipperID")
 
 
-print(df)
-# calcular monto:
-
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["ShipperID", "CompanyName"],
+    columns=["CategoryID", "CategoryName"],
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 
-"""
-python pivot45.py
-
-"""
