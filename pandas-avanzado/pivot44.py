@@ -58,7 +58,3 @@ print(informe)
 informe["Total"] = informe.sum(axis=1)
 pivot1 = informe.sort_values("Total", ascending=False).round(2)
 print(pivot1)
-"""
-python pivot44.py
-
-"""
