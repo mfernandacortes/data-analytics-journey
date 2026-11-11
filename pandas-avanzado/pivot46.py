@@ -33,12 +33,18 @@ df=pd.merge(capod_o, c, on="CustomerID")
 print(df)
 
 # calcular monto:
-
+df["monto"]=df["Quantity"] * df["UnitPrice"] * (1 - df["Discount"])
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index=["CategoryID", "CategoryName"],
+    columns="Country",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+)
+
+print(informe)
 
 
-"""
-python pivot46.py
-
-"""
