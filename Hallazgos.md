@@ -343,3 +343,9 @@ Margaret Peacock lidera con $232.890,85 (18,4% del total de $1.265.793,03) y, ju
 **Archivo:** pandas-avanzado/pivot45.py
 
 United Package lidera en 7 de las 8 categorías. La única excepción es Condiments, donde Speedy Express gana (1.991 unidades contra 1.816), la misma excepción que aparece en el pivot de monto. La celda más alta es Beverages con United Package (3.809). La mayor distancia está en Meat/Poultry, donde United Package (1.825) mueve casi el doble que Speedy Express (971). Los totales por transportista (United Package 19.945, Speedy Express 15.919 y Federal Shipping 15.453) coinciden con los del pivot de unidades por transportista y año.
+
+## Hallazgo — Monto vendido por empleado y país de proveedor (Northwind): 
+**Fecha:** 12/11/2026
+**Archivo:** pandas-avanzado/pivot47.py
+
+Entre los 8 países de proveedor que se ven en el resultado, Peacock lidera tres (Canadá, Reino Unido y USA), con su celda más alta en USA ($26.801). Davolio lidera Australia ($34.704, la celda más alta entre las visibles) y Dinamarca ($2.664), Callahan lidera Brasil ($1.002) y Suecia ($6.888), y King lidera España ($5.696). Dodsworth casi no vende productos de proveedores canadienses ($352) y Peacock casi no vende los de Brasil ($44). Los totales por país coinciden con los del pivot de monto por país de proveedor y año (por ejemplo, Australia suma $172.087). El resultado oculta 8 de los 16 países, así que el hallazgo vale solo para los 8 visibles.
