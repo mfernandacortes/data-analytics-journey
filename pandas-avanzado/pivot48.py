@@ -28,11 +28,21 @@ df=pd.merge(ca, p, on="CategoryID")
 df=pd.merge(df, od, on="ProductID")
 df=pd.merge(df, o, on="OrderID")
 
-print(df)
+# año:
+df["anio"]=df["OrderDate"].dt.year
 
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index="CategoryName",
+    columns="anio",
+    values="Quantity",
+    aggfunc="sum",
+    fill_value=0
+)
 
+print(informe)
 
 """
 python pivot48.py
