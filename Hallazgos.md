@@ -356,3 +356,11 @@ Entre los 8 países de proveedor que se ven en el resultado, Peacock lidera tres
 **Archivo:** pandas-avanzado/pivot41.py
 
 Peacock lidera 6 de las 8 categorías (Condiments, Confections, Grains/Cereals, Meat/Poultry, Produce y Seafood) y Davolio las otras 2: Beverages (1.607 unidades, apenas sobre las 1.572 de Peacock) y Dairy Products (1.525). En Seafood la diferencia también es chica: Peacock 1.505 contra 1.479 de Leverling. Buchanan vendió más del doble de Dairy Products (918) que de cualquier otra de sus categorías. La celda más baja del pivot es Dodsworth en Produce (41 unidades). Los totales por empleado (Peacock 9.798 y Davolio 7.812) coinciden con los de los pivots de unidades por año y por transportista.
+
+
+## Hallazgo —Pedidos por empleado y año (Northwind): 
+**Fecha:** 14/11/2026
+**Archivo:** pandas-avanzado/pivot49.py
+
+Peacock lidera los tres años (31 pedidos en 1996, 81 en 1997 y 44 en 1998) y también el total (156), seguido por Leverling (127) y Davolio (123 más 1 pedido de 1999). 1997 es el año con más pedidos para 8 de los 9 empleados, y Dodsworth lo empata con 1998 (19 y 19), con ese año incompleto (los datos llegan hasta principios de mayo). Buchanan es el empleado con menos pedidos (42 en total). La suma del pivot da 831 pedidos, igual que las filas del merge. 
+El pedido de 1999 es el 11079 (cliente ALFKI, Davolio, 15/01/1999) y no tiene ninguna línea en [Order Details], por eso no aparece en los pivots de monto ni de unidades. Probablemente es un dato de prueba, aunque no se puede confirmar. Sin ese pedido, la base tiene 830 pedidos y Davolio suma 123.
