@@ -349,3 +349,10 @@ United Package lidera en 7 de las 8 categorías. La única excepción es Condime
 **Archivo:** pandas-avanzado/pivot47.py
 
 Entre los 8 países de proveedor que se ven en el resultado, Peacock lidera tres (Canadá, Reino Unido y USA), con su celda más alta en USA ($26.801). Davolio lidera Australia ($34.704, la celda más alta entre las visibles) y Dinamarca ($2.664), Callahan lidera Brasil ($1.002) y Suecia ($6.888), y King lidera España ($5.696). Dodsworth casi no vende productos de proveedores canadienses ($352) y Peacock casi no vende los de Brasil ($44). Los totales por país coinciden con los del pivot de monto por país de proveedor y año (por ejemplo, Australia suma $172.087). El resultado oculta 8 de los 16 países, así que el hallazgo vale solo para los 8 visibles.
+
+
+## Hallazgo — Unidades vendidas por empleado y categoría (Northwind):
+**Fecha:** 04/11/2026
+**Archivo:** pandas-avanzado/pivot41.py
+
+Peacock lidera 6 de las 8 categorías (Condiments, Confections, Grains/Cereals, Meat/Poultry, Produce y Seafood) y Davolio las otras 2: Beverages (1.607 unidades, apenas sobre las 1.572 de Peacock) y Dairy Products (1.525). En Seafood la diferencia también es chica: Peacock 1.505 contra 1.479 de Leverling. Buchanan vendió más del doble de Dairy Products (918) que de cualquier otra de sus categorías. La celda más baja del pivot es Dodsworth en Produce (41 unidades). Los totales por empleado (Peacock 9.798 y Davolio 7.812) coinciden con los de los pivots de unidades por año y por transportista.
