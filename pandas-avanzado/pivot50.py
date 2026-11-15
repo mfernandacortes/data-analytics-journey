@@ -29,9 +29,14 @@ co["anio"]=co["OrderDate"].dt.year
 
 print(co)
 # pivot:
+informe=pd.pivot_table(
+    co,
+    index="Country",
+    columns="anio",
+    values="OrderID",
+    aggfunc="nunique",
+    fill_value=0
+)
 
+print(informe)
 
-"""
-python pivot50.py
-
-"""
