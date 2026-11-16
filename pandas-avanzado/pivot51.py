@@ -24,13 +24,18 @@ o=pd.read_sql("select OrderID, CustomerID, OrderDate from Orders", engine)
 # merge:
 df=pd.merge(cu, o, on="CustomerID")
 
-# calcular monto:
-print(df)
+# año:
+df["anio"]=df["OrderDate"].dt.year
 
 # pivot:
+informe=pd.pivot_table(
+    df,
+    index="Country",
+    columns="anio",
+    values="OrderID",
+    aggfunc="nunique",
+    fill_value=0
+)
 
+print(informe)
 
-"""
-python pivot51.py
-
-"""
