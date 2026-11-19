@@ -370,3 +370,10 @@ El pedido de 1999 es el 11079 (cliente ALFKI, Davolio, 15/01/1999) y no tiene ni
 **Archivo:** pandas-avanzado/pivot50.py
 
 Alemania lidera 1996 (24 pedidos) y 1997 (64), y USA lidera 1998 (39), con el año incompleto (los datos llegan hasta principios de mayo). Sumando los años, Alemania tiene 123 pedidos y USA 122, pero el de Alemania incluye el pedido 11079 de 1999, que no tiene líneas en [Order Details]: sin él, los dos empatan en 122. Brasil (83) y Francia (77) siguen en el ranking. Argentina no registra pedidos en 1996. La suma del pivot da 831 pedidos, igual que las filas del merge.
+
+
+## Hallazgo — Monto vendido por categoría y año (Northwind): 
+**Fecha:** 19/11/2026
+**Archivo:** pandas-avanzado/pivot53.py
+
+Beverages lidera con unos 267.900 en total, seguida por Dairy Products (unos 234.500) y Confections (unos 167.400). Beverages es la única categoría que crece de 1997 a 1998 (de unos 103.900 a unos 116.000), mientras que las otras 7 bajan; Dairy Products pasa de ser la primera en 1997 (unos 115.400) a la segunda en 1998. Ojo: los datos de 1998 llegan solo hasta el 6 de mayo, así que ese año es parcial, y que Beverages suba igual con menos meses es lo llamativo. El total del pivot es de unos 1.265.800.
