@@ -19,7 +19,7 @@ CompanyName de Shippers, en filas) y por año (columnas).
 
 # traer tablas:
 sh=pd.read_sql("select ShipperID, CompanyName from Shippers", engine)
-o=pd.read_sql("select OrderID, ShipVia, OrderDate from Orders", engine)
+o=pd.read_sql("select OrderID, ShipVia, OrderDate, Freight from Orders", engine)
 
 # merge:
 df=pd.merge(sh, o, left_on="ShipperID", right_on="ShipVia")
@@ -29,7 +29,19 @@ df["anio"]=df["OrderDate"].dt.year
 
 
 # pivot:
-print(df)
+informe=pd.pivot_table(
+    df,
+    index="CompanyName",
+    columns="anio",
+    values="Freight",
+    aggfunc="sum",
+    fill_value=0
+)
+
+print(informe)
+
+# para comparar los valores:
+print(df["Freight"].sum())
 
 """
 python pivot54.py
