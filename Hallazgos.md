@@ -377,3 +377,10 @@ Alemania lidera 1996 (24 pedidos) y 1997 (64), y USA lidera 1998 (39), con el a�
 **Archivo:** pandas-avanzado/pivot53.py
 
 Beverages lidera con unos 267.900 en total, seguida por Dairy Products (unos 234.500) y Confections (unos 167.400). Beverages es la única categoría que crece de 1997 a 1998 (de unos 103.900 a unos 116.000), mientras que las otras 7 bajan; Dairy Products pasa de ser la primera en 1997 (unos 115.400) a la segunda en 1998. Ojo: los datos de 1998 llegan solo hasta el 6 de mayo, así que ese año es parcial, y que Beverages suba igual con menos meses es lo llamativo. El total del pivot es de unos 1.265.800.
+
+
+## Hallazgo — Flete por transportista y año (Northwind): 
+**Fecha:** 20/11/2026
+**Archivo:** pandas-avanzado/pivot54.py
+
+United Package es el transportista que más flete acumula (unos 28.245), seguido por Federal Shipping (unos 20.513) y Speedy Express (unos 16.185). El total del pivot es 64.942,69 y coincide con la suma de Freight del merge. 1997 es el año más alto en los tres transportistas. United Package casi mantiene su nivel en 1998 (de 12.374 a 12.122) aunque ese año llega solo hasta mayo, mientras que Federal Shipping y Speedy Express bajan. Ojo: es monto de flete, no cantidad de envíos, así que no sabemos si United Package cobra más por pedido o hizo más pedidos.
