@@ -384,3 +384,9 @@ Beverages lidera con unos 267.900 en total, seguida por Dairy Products (unos 234
 **Archivo:** pandas-avanzado/pivot54.py
 
 United Package es el transportista que más flete acumula (unos 28.245), seguido por Federal Shipping (unos 20.513) y Speedy Express (unos 16.185). El total del pivot es 64.942,69 y coincide con la suma de Freight del merge. 1997 es el año más alto en los tres transportistas. United Package casi mantiene su nivel en 1998 (de 12.374 a 12.122) aunque ese año llega solo hasta mayo, mientras que Federal Shipping y Speedy Express bajan. Ojo: es monto de flete, no cantidad de envíos, así que no sabemos si United Package cobra más por pedido o hizo más pedidos.
+
+## Hallazgo — Clientes-Personas (AdventureWorks2025) :
+**Fecha:** 21/11/2026
+**Archivo:** adventureworks/03_clientes.py
+
+Sales.Customer tiene 19.820 clientes y 701 son tiendas (PersonID nulo); un JOIN con Person.Person las pierde, y para incluirlas haría falta un LEFT JOIN.
