@@ -13,7 +13,7 @@ engine = create_engine(
 """
 CONSIGNA:
 La gerencia quiere ver cuántas unidades (Quantity) se vendieron por producto (ProductName en filas) y 
-por año (columnas), solo de los 10 productos más vendidos en total.
+por año (columnas).
 
 """
 
@@ -26,12 +26,14 @@ od=pd.read_sql("select OrderID, ProductID, Quantity from [Order Details]", engin
 p_od=pd.merge(p, od, on="ProductID")
 df=pd.merge(p_od, o, on="OrderID")
 
-print(df)
 
 # año:
 df["anio"]=df["OrderDate"].dt.year
 
+
+
 # pivot:
+
 informe=pd.pivot_table(
     df,
     index="ProductName",
@@ -40,6 +42,7 @@ informe=pd.pivot_table(
     aggfunc="sum",
     fill_value=0
 )
+
 print(informe)
 
 """
