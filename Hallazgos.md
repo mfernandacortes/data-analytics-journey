@@ -390,3 +390,13 @@ United Package es el transportista que más flete acumula (unos 28.245), seguido
 **Archivo:** adventureworks/03_clientes.py
 
 Sales.Customer tiene 19.820 clientes y 701 son tiendas (PersonID nulo); un JOIN con Person.Person las pierde, y para incluirlas haría falta un LEFT JOIN.
+
+## Hallazgo — Productos (AdventureWorks2025) :
+**Fecha:** 23/11/2026
+**Archivo:** adventureworks/05_productos_mas_baratos.py
+
+De los cinco productos más económicos, los últimos tres tienen el mismo precio.
+El más barato: El Patch Kit/8 Patches, con 2,29.
+Son accesorios y repuestos de mantenimiento, no son bicicletas.
+El empate de los últimos tres indica que otro pudo haber quedado afuera, para ese caso se hizo un top 10
+y se confirma que solo esos tres tuvieron el mismo precio, a partir del sexto producto el precio ya era mayor.

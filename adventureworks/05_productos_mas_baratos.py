@@ -28,7 +28,9 @@ prod_vendibles=p[p["ListPrice"] > 0]
 print(prod_vendibles)
 
 top5=prod_vendibles.sort_values(by="ListPrice", ascending=True).head(5)
+top10=prod_vendibles.sort_values(by="ListPrice", ascending=True).head(10)
 
 print(top5)
+print(top10)
 
 
