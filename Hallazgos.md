@@ -390,6 +390,7 @@ United Package es el transportista que más flete acumula (unos 28.245), seguido
 **Archivo:** adventureworks/03_clientes.py
 
 Sales.Customer tiene 19.820 clientes y 701 son tiendas (PersonID nulo); un JOIN con Person.Person las pierde, y para incluirlas haría falta un LEFT JOIN.
+O sea que personas son 19.119, las consultas son distintas cuando se pretende ver el listado de clientes, el LEFT JOIN precisamente incluiría las tiendas que JOIN está dejando afuera. En esta base de datos las personas están en un solo archivo e incluyen: empleados, clientes, proveedores...
 
 ## Hallazgo — Productos (AdventureWorks2025) :
 **Fecha:** 23/11/2026
