@@ -48,10 +48,4 @@ print(df["monto"].sum())
 
 print(agrup)
 
-# pivot:
 
-
-"""
-python 06_orders_details.py
-
-"""
