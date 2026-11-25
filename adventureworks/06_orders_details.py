@@ -40,6 +40,13 @@ df["anio"]=df["OrderDate"].dt.year
 
 
 print(df)
+# agrupo por año:
+
+agrup=df.groupby("anio")["monto"].sum().round(2)
+
+print(df["monto"].sum())
+
+print(agrup)
 
 # pivot:
 
