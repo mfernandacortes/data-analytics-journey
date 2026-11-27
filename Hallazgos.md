@@ -401,3 +401,10 @@ El más barato: El Patch Kit/8 Patches, con 2,29.
 Son accesorios y repuestos de mantenimiento, no son bicicletas.
 El empate de los últimos tres indica que otro pudo haber quedado afuera, para ese caso se hizo un top 10
 y se confirma que solo esos tres tuvieron el mismo precio, a partir del sexto producto el precio ya era mayor.
+
+## Hallazgo — Order Details (AdventureWorks2025) :
+**Fecha:** 25/11/2026
+**Archivo:** adventureworks/06_orders_details.py
+
+De los cuatro años que tiene el dataset, el que tiene mayor facturación es el año 2024, que creció casi un 40% respecto al año 2023.
+Con respecto a los años parciales:2022 comienza con un monto que se duplica en 2023, el crecimiento sigue siendo óptimo en 2024 y como finaliza en junio 2025 el dataset, hay un decrecimiento de más de un 50%, que se debe a que solo se comparan 6 meses en el 2025, lo mismo ocurre con 2022, por eso se duplica en 2023, en parte por su parcialidad.

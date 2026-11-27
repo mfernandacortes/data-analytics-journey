@@ -33,9 +33,22 @@ df["anio"]=df["OrderDate"].dt.year
 # mes:
 df["mes"]=df["OrderDate"].dt.month
 
-# pivot:
-print(df)
+# agrupar por año y mes:
+agrup=df.groupby(["anio", "mes"])["monto"].sum().round(2)
+print(agrup)
 
+# pivot:
+informe=pd.pivot_table(
+    df,
+    index="mes",
+    columns="anio",
+    values="monto",
+    aggfunc="sum",
+    fill_value=0
+
+)
+
+print(informe)
 """
 python 07_comparativo_ventas.py
 
