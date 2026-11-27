@@ -33,6 +33,15 @@ sh_o["anio"]=sh_o["OrderDate"].dt.year
 # pivot:
 print(sh_o)
 
+informe=pd.pivot_table(
+    sh_o,
+    index="CompanyName",
+    columns="anio",
+    values="OrderID",
+    aggfunc="count",
+    fill_value=0
+)
+print(informe)
 """
 python pivot56.py
 
