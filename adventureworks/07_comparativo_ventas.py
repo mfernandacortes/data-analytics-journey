@@ -37,6 +37,7 @@ df["mes"]=df["OrderDate"].dt.month
 agrup=df.groupby(["anio", "mes"])["monto"].sum().round(2)
 print(agrup)
 
+
 # pivot:
 informe=pd.pivot_table(
     df,
@@ -49,6 +50,16 @@ informe=pd.pivot_table(
 )
 
 print(informe)
+
+
+
+junio2025=df[(df["mes"] == 6) & (df["anio"] == 2025)]
+
+
+print(len(junio2025))
+print(junio2025["OrderDate"].min())
+print(junio2025["OrderDate"].max())
+
 """
 python 07_comparativo_ventas.py
 
